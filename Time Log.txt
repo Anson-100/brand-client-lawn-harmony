@@ -1,0 +1,5 @@
+2/27/2025
+1.5 hrs
+-research time backend architecture on chatgpt; decide on putting together client aws account later
+-make site hosting for my aws account (s3 and cloudfront; must have GLOBALLY unique name for bucket)
+-research other lawn care sites; will use tru green site as template

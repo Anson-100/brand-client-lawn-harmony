@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  color: #f3f4f6;
+  background: linear-gradient(to right, #09090b, #27272a);
+  @apply text-text;
+}
+
+/* LANDING PAGE STYLING =============================================================================================*/
+
+.zinc-shadow {
+  box-shadow: 1px 1px 2px #09090b;
+}
+
+/* In your global CSS file or a custom CSS file */
+.text-gradient {
+  background: linear-gradient(to right, #f4f4f5, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* NAVBAR STYLING ==========================================================================================*/
+.mobile-menu {
+  backdrop-filter: blur(5px);
+}
+
+.nav-bg {
+  backdrop-filter: blur(12px);
+}
+
+/* FITNESS DROPDOWN STYLING =====================================================================================*/
+.dropdown-button {
+  border: solid 0.5px transparent;
+  border-radius: 5px;
+}
+
+.dropdown-button:hover {
+  border: solid 0.5px #33fe12;
+  border-radius: 5px;
+}
+
+.dropdown-section {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* CONTACT US PAGE STYLING  =======================================================================*/
+.neon {
+  box-shadow: 0px 0px 20px #33fe12;
+}
+
+.contact-main {
+  height: calc(100vh - 4.5rem);
+}
+
+/* CAROUSEL STYLING ===================================================================================================*/
+
+.slides {
+  transition: transform 0.5s ease;
+}
+
+/* ERROR PAGE STYLING ===================================================================================================*/
+
+.error-body {
+  height: 95vh;
+}
+
+.error-div {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-header {
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.green-line {
+  background-color: #33fe12;
+  width: 50%;
+  height: 1px;
+}
+
+.error-message {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.error-link {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.error-link:hover {
+  color: #33fe12;
+}
