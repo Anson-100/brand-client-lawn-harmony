@@ -1,13 +1,13 @@
 import Navbar from "@/scenes/navbar"
-
 import Home from "@/scenes/home"
-import MartialArts from "@/scenes/martialArts"
-import Fitness from "@/scenes/fitness"
+import SectionOne from "@/scenes/sectionOne"
+import SectionTwo from "@/scenes/sectionTwo"
+import SectionThree from "@/scenes/sectionThree"
 import ContactUs from "@/scenes/contactUs"
-import Waivers from "@/scenes/waivers"
+import RouteOne from "@/scenes/routeOne"
 import LineGradient from "@/components/LineGradient"
-
 import Footer from "@/scenes/footer"
+
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { SelectedPage } from "@/shared/types"
@@ -47,9 +47,17 @@ function App() {
             element={
               <>
                 <Home setSelectedPage={setSelectedPage} />
-                <Fitness setSelectedPage={setSelectedPage} />
-                <MartialArts setSelectedPage={setSelectedPage} />
                 <LineGradient />
+
+                <SectionOne setSelectedPage={setSelectedPage} />
+                <LineGradient />
+
+                <SectionTwo setSelectedPage={setSelectedPage} />
+                <LineGradient />
+
+                <SectionThree setSelectedPage={setSelectedPage} />
+                <LineGradient />
+
                 <ContactUs setSelectedPage={setSelectedPage} />
 
                 <Footer
@@ -61,7 +69,7 @@ function App() {
           />
 
           {/* Standalone Route for Waivers */}
-          <Route path="/waivers" element={<Waivers />} />
+          <Route path="/routeOne" element={<RouteOne />} />
         </Routes>
       </div>
     </Router>

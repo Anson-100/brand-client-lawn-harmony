@@ -1,9 +1,10 @@
 export enum SelectedPage {
   Home = "home",
-  Fitness = "fitness",
-  MartialArts = "martialarts",
+  SectionOne = "sectionone",
+  SectionTwo = "sectiontwo",
+  SectionThree = "sectionthree",
   ContactUs = "contactus",
-  Waivers = "waivers",
+  RouteOne = "routeone",
 }
 
 export interface BenefitType {

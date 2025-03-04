@@ -2,15 +2,12 @@ import { useState, useEffect, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
 import LinkDesktop from "./LinkDesktop"
 import LinkMobile from "./LinkMobile"
-
 import LogoLink from "@/components/LogoLink"
 
 import {
   Bars2Icon,
   XMarkIcon,
   HomeIcon,
-  FireIcon,
-  ArrowTrendingUpIcon,
   PaperAirplaneIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid"
@@ -46,7 +43,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   }, [])
 
   // Check if the current route is `/waivers`
-  const isWaiversPage = location.pathname === "/waivers"
+  const isWaiversPage = location.pathname === "/routeOne"
 
   return (
     <nav className="">
@@ -83,34 +80,49 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   className={`${flexBetween} gap-4 text-md bg-zinc-900 my-1 pl-4 pr-2 rounded-lg`}
                 >
                   <LinkDesktop
-                    page="Home"
+                    scrollTo={SelectedPage.Home}
+                    displayText="Home"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
+
                   <LinkDesktop
-                    page="Fitness"
+                    scrollTo={SelectedPage.SectionOne}
+                    displayText="Section 1"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
+
                   <LinkDesktop
-                    page="Martial Arts"
+                    scrollTo={SelectedPage.SectionTwo}
+                    displayText="Section 2"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
+
                   <LinkDesktop
-                    page="Contact Us"
+                    scrollTo={SelectedPage.SectionThree}
+                    displayText="Section 3"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
+
+                  <LinkDesktop
+                    scrollTo={SelectedPage.ContactUs}
+                    displayText="Contact Us"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+                  />
+
                   <div className="h-6 w-[1px] mb-1 bg-zinc-600"></div>
                   <Link
-                    to="/waivers"
+                    to="/routeOne"
                     onClick={() => {
-                      sessionStorage.setItem("selectedPage", "waivers")
+                      sessionStorage.setItem("selectedPage", "routeone")
                     }}
                     className="flex items-center justify-center gap-2 py-2 px-4 m-2 bg-zinc-800 hover:bg-zinc-700 rounded-md border border-emerald-theme"
                   >
-                    Waivers
+                    routeOne
                     <div className="font-semibold text-emerald-500 text-lg">
                       &rarr;
                     </div>
@@ -145,48 +157,70 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
           <div className="flex flex-col items-center text-lg z-50">
             <>
               <LinkMobile
-                page="Home"
+                scrollTo={SelectedPage.Home}
+                displayText="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
                 Icon={HomeIcon}
               />
+
               <div className="w-full h-[1px] bg-gray-700 m-auto" />
+
               <LinkMobile
-                page="Fitness"
+                scrollTo={SelectedPage.SectionOne}
+                displayText="Section 1"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
-                Icon={ArrowTrendingUpIcon}
+                Icon={HomeIcon}
               />
+
               <div className="w-full h-[1px] bg-gray-700 m-auto" />
+
               <LinkMobile
-                page="Martial Arts"
+                scrollTo={SelectedPage.SectionTwo}
+                displayText="Section 2"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
-                Icon={FireIcon}
+                Icon={HomeIcon}
               />
+
               <div className="w-full h-[1px] bg-gray-700 m-auto" />
+
               <LinkMobile
-                page="Contact Us"
+                scrollTo={SelectedPage.SectionThree}
+                displayText="Section 3"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+                toggleMenu={() => setIsMenuToggled(false)}
+                Icon={HomeIcon}
+              />
+
+              <div className="w-full h-[1px] bg-gray-700 m-auto" />
+
+              <LinkMobile
+                scrollTo={SelectedPage.ContactUs}
+                displayText="Contact Us"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
                 Icon={PaperAirplaneIcon}
               />
+
               <div className="w-full h-[1px] bg-gray-700 m-auto" />
               <Link
-                to="/waivers"
+                to="/routeOne"
                 onClick={() => {
-                  sessionStorage.setItem("selectedPage", "waivers")
+                  sessionStorage.setItem("selectedPage", "routeone")
                   setIsMenuToggled(false)
                 }}
                 className="py-8 px-4 w-full pl-10 bg-zinc-700 flex items-center rounded-bl-md text-gray-300"
               >
                 <DocumentTextIcon className="h-6 w-6 mr-4 text-gray-300" />
                 <p>
-                  Waivers{" "}
+                  RouteOne{" "}
                   <span className="text-emerald-theme text-lg">&rarr;</span>
                 </p>
               </Link>
