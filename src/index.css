@@ -12,8 +12,8 @@ body,
   height: 100%;
   width: 100%;
   font-family: "DM Sans", sans-serif;
-  color: #f3f4f6;
-  background: linear-gradient(to right, #09090b, #27272a);
+  color: oklch(0.21 0.006 285.885);
+  background: linear-gradient(to right, oklch(0.922 0 0), oklch(0.708 0 0));
   @apply text-text;
 }
 

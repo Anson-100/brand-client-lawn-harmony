@@ -2,27 +2,31 @@ import { SelectedPage } from "@/shared/types"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 
 type Props = {
-  page: string
+  scrollTo: SelectedPage // The actual section/page to scroll to
+  displayText: string // The text shown in the UI
   selectedPage: SelectedPage
   setSelectedPage: (value: SelectedPage) => void
 }
 
-const LinkDesktop = ({ page, selectedPage, setSelectedPage }: Props) => {
-  const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage
-
+const LinkFooter = ({
+  scrollTo,
+  displayText,
+  selectedPage,
+  setSelectedPage,
+}: Props) => {
   return (
     <AnchorLink
-      className={` text-gray-200  ${
-        selectedPage === lowerCasePage ? " " : "hover:underline"
-      }
-        
-      `}
-      href={`#${lowerCasePage}`}
-      onClick={() => setSelectedPage(lowerCasePage)}
+      className={`text-gray-200 ${
+        selectedPage === scrollTo
+          ? ""
+          : "hover:underline hover:text-emerald-400"
+      }`}
+      href={`#${scrollTo}`} // Now scrolling is based on `scrollTo`
+      onClick={() => setSelectedPage(scrollTo)}
     >
-      {page}
+      {displayText} {/* Display the proper link text */}
     </AnchorLink>
   )
 }
 
-export default LinkDesktop
+export default LinkFooter

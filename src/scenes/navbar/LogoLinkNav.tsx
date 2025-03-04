@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import AnchorLink from "react-anchor-link-smooth-scroll"
-import ITLogo from "@/assets/logoMain.png"
+import LogoIcon from "@/assets/logoMainIcon.png"
 
 const LogoLink: React.FC = () => {
   const isHomePage = window.location.pathname === "/"
   const lowerCasePage = "home"
 
   const LogoImage: React.FC = () => (
-    <img src={ITLogo} alt="Logo Main" className="h-14 py-2" />
+    <img src={LogoIcon} alt="Logo Main" className="h-14 grayscale" />
   )
 
   return isHomePage ? (

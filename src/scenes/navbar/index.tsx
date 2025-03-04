@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
 import LinkDesktop from "./LinkDesktop"
 import LinkMobile from "./LinkMobile"
-import LogoLink from "@/components/LogoLink"
+import LogoLinkNav from "./LogoLinkNav"
 
 import {
   Bars2Icon,
@@ -26,7 +26,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
 
-  const navbarBackground = isTopOfPage ? "bg-zinc-900" : "bg-zinc-900"
+  const navbarBackground = isTopOfPage ? "bg-neutral-700" : "bg-neutral-700"
 
   const menuRef = useRef<HTMLDivElement>(null)
   const location = useLocation() // Get the current route
@@ -43,20 +43,20 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   }, [])
 
   // Check if the current route is `/waivers`
-  const isWaiversPage = location.pathname === "/routeOne"
+  const isRouteOne = location.pathname === "/routeOne"
 
   return (
     <nav className="">
       <div
-        className={`${navbarBackground} ${flexBetween} fixed border-t-[5px] border-t-zinc-700 top-0 z-30 w-full max-w-full border-b-[1px] border-zinc-700 backdrop-blur-md bg-opacity-80 h-[4.5rem]`}
+        className={`${navbarBackground} ${flexBetween} fixed border-t-[5px] border-t-zinc-700 top-0 z-30 w-full max-w-full border-b-[1px] border-zinc-700 backdrop-blur-md bg-opacity-80 h-[84px]`}
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
-            <LogoLink />
+            <LogoLinkNav />
 
             {/* RIGHT SIDE */}
-            {isWaiversPage ? (
+            {isRouteOne ? (
               // Simplified Navbar for Waivers Page
               <div>
                 <Link
@@ -65,19 +65,19 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     setSelectedPage(SelectedPage.Home)
                     sessionStorage.setItem("selectedPage", "home")
                   }}
-                  className="flex items-center justify-center gap-2 py-2 px-4 m-0 md:m-2 bg-zinc-800 hover:bg-zinc-700 rounded-md text-zinc-300 hover:text-zinc-100"
+                  className="flex items-center justify-center gap-2 py-2 px-4 m-2 bg-neutral-800 hover:bg-neutral-700 rounded-md border border-neutral-500"
                 >
-                  <div className="font-semibold text-emerald-500 text-lg">
+                  <div className="font-semibold text-zinc-500 text-lg">
                     &larr;
                   </div>
                   Home{" "}
                 </Link>
               </div>
             ) : isAboveMediumScreens ? (
-              // Full Navbar for Main Pages
+              // FULL NAV ITEMS=================================================================================
               <div className={`${flexBetween} gap-8`}>
                 <div
-                  className={`${flexBetween} gap-4 text-md bg-zinc-900 my-1 pl-4 pr-2 rounded-lg`}
+                  className={`${flexBetween} gap-4 text-md bg-neutral-800 my-2 pl-4 pr-2 rounded-lg`}
                 >
                   <LinkDesktop
                     scrollTo={SelectedPage.Home}
@@ -120,10 +120,10 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     onClick={() => {
                       sessionStorage.setItem("selectedPage", "routeone")
                     }}
-                    className="flex items-center justify-center gap-2 py-2 px-4 m-2 bg-zinc-800 hover:bg-zinc-700 rounded-md border border-emerald-theme"
+                    className="flex items-center justify-center gap-2 py-2 px-4 m-2 bg-neutral-800 hover:bg-neutral-700 rounded-md border border-neutral-500"
                   >
-                    routeOne
-                    <div className="font-semibold text-emerald-500 text-lg">
+                    Route One
+                    <div className="font-semibold text-neutral-500 text-lg">
                       &rarr;
                     </div>
                   </Link>
@@ -149,7 +149,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       {!isAboveMediumScreens && isMenuToggled && (
         <div
           ref={menuRef}
-          className={`mobile-menu fixed mt-[60px] top-0 right-0 w-3/4 max-w-[350px] sm:w-1/3 z-40 bg-zinc-800 rounded-l-md transition-all duration-300 zinc-shadow ${
+          className={`mobile-menu fixed mt-[60px] top-0 right-0 w-3/4 max-w-[350px] sm:w-1/3 z-40 bg-neutral-800 rounded-l-md transition-all duration-300 ${
             isMenuToggled ? "h-auto" : "h-0"
           }`}
         >
@@ -165,7 +165,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 Icon={HomeIcon}
               />
 
-              <div className="w-full h-[1px] bg-gray-700 m-auto" />
+              <div className="w-full h-[1px] bg-zinc-700 m-auto" />
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionOne}
@@ -176,7 +176,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 Icon={HomeIcon}
               />
 
-              <div className="w-full h-[1px] bg-gray-700 m-auto" />
+              <div className="w-full h-[1px] bg-zinc-700 m-auto" />
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionTwo}
@@ -187,7 +187,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 Icon={HomeIcon}
               />
 
-              <div className="w-full h-[1px] bg-gray-700 m-auto" />
+              <div className="w-full h-[1px] bg-zinc-700 m-auto" />
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionThree}
@@ -198,7 +198,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 Icon={HomeIcon}
               />
 
-              <div className="w-full h-[1px] bg-gray-700 m-auto" />
+              <div className="w-full h-[1px] bg-zinc-700 m-auto" />
 
               <LinkMobile
                 scrollTo={SelectedPage.ContactUs}
@@ -209,7 +209,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 Icon={PaperAirplaneIcon}
               />
 
-              <div className="w-full h-[1px] bg-gray-700 m-auto" />
+              <div className="w-full h-[1px] bg-zinc-700 m-auto" />
               <Link
                 to="/routeOne"
                 onClick={() => {

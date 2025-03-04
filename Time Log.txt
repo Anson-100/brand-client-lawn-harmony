@@ -3,3 +3,10 @@
 -research time backend architecture on chatgpt; decide on putting together client aws account later
 -make site hosting for my aws account (s3 and cloudfront; must have GLOBALLY unique name for bucket)
 -research other lawn care sites; will use tru green site as template
+
+3/3/2025
+
+2 hrs
+-initialized git for project (10 mins)
+-created logo (20 mins?)
+-built template from previous project (1.5 hrs)
