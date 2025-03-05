@@ -47,16 +47,12 @@ function App() {
             element={
               <>
                 <Home setSelectedPage={setSelectedPage} />
-                <LineGradient />
 
                 <SectionOne setSelectedPage={setSelectedPage} />
-                <LineGradient />
 
                 <SectionTwo setSelectedPage={setSelectedPage} />
-                <LineGradient />
 
                 <SectionThree setSelectedPage={setSelectedPage} />
-                <LineGradient />
 
                 <ContactUs setSelectedPage={setSelectedPage} />
 

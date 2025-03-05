@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import AnchorLink from "react-anchor-link-smooth-scroll"
-import LogoIcon from "@/assets/logoMainIcon.png"
+import LogoIcon from "@/assets/logoMainDark.png"
 
 const LogoLink: React.FC = () => {
   const isHomePage = window.location.pathname === "/"

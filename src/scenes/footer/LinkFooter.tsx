@@ -17,9 +17,7 @@ const LinkFooter = ({
   return (
     <AnchorLink
       className={`text-gray-200 ${
-        selectedPage === scrollTo
-          ? ""
-          : "hover:underline hover:text-emerald-400"
+        selectedPage === scrollTo ? "" : "hover:underline "
       }`}
       href={`#${scrollTo}`} // Now scrolling is based on `scrollTo`
       onClick={() => setSelectedPage(scrollTo)}

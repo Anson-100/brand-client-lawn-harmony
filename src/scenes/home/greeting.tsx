@@ -9,11 +9,11 @@ const Greeting = () => {
       const hours = now.getHours() // Local time zone is automatically used
 
       if (hours < 12) {
-        setGreeting("Good Morning, Welcome to")
+        setGreeting("Good morning, welcome to Lawn Harmony")
       } else if (hours < 18) {
-        setGreeting("Good Afternoon, Welcome to ")
+        setGreeting("Good afternoon, welcome to Lawn Harmony")
       } else {
-        setGreeting("Good Evening, Welcome to")
+        setGreeting("Good evening, welcome to Lawn Harmony")
       }
     }
 
@@ -24,7 +24,7 @@ const Greeting = () => {
     return () => clearInterval(interval) // Clean up on unmount
   }, [])
 
-  return <p className="text-base font-semibold text-gray-400">{greeting}</p>
+  return <p className="text-base font-semibold text-zinc-600">{greeting}</p>
 }
 
 export default Greeting

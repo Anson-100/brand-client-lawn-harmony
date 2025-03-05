@@ -34,7 +34,8 @@ export default {
       }),
       fontFamily: {
         dmsans: ["DM Sans", "sans-serif"],
-        rocksalt: ["Montserrat", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        quest: ["Questrial", "sans-serif"],
       },
       content: {
         ofmabg: "url('./assets/ofma-bg.png')",
@@ -44,10 +45,15 @@ export default {
       xs: "480px",
       sm: "768px",
       md: "1060px",
-      ml: "1200px",
-      ml2: "1260px",
+      xl: "1060px",
       lg: "1480px",
       se: { raw: "(max-width: 376px) and (max-height: 700px)" },
+      "landscape-mobile": {
+        raw: "(max-height: 440px) and (orientation: landscape)",
+      },
+      "se-mobile": {
+        raw: "(max-height: 376px) and (orientation: landscape)",
+      },
     },
   },
   plugins: [],

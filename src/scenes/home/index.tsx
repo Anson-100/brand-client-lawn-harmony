@@ -1,29 +1,67 @@
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
-import useMediaQuery from "@/hooks/useMediaQuery"
+
+import AnchorLink from "react-anchor-link-smooth-scroll"
+
+import Greeting from "./greeting"
+
+import HeroImage from "@/assets/heroImage.png"
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void
 }
 
 const Home = ({ setSelectedPage }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
-
   return (
-    <section id="home" className="h-full relative isolate">
+    <section id="home" className="min-h-full relative isolate overflow-hidden ">
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200 ring-1 shadow-xl shadow-neutral-600/10 ring-neutral-300 sm:-mr-80 lg:-mr-96"
+      />
+
       <motion.div
-        className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
+        className=" bg-linear-to-b from-indigo-100/20"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
       >
-        {/* HEADER===================================================================================== */}
-        {isAboveMediumScreens ? (
-          // DESKTOP SECTION================================================================
+        <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
+            <Greeting />
+            <h1 className="max-w-2xl text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl lg:col-span-2 xl:col-auto">
+              We make lawns look their best
+            </h1>
+            <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
+              <p className="text-lg text-zinc-700 sm:text-xl/8">
+                Enjoy a lush, healthy lawn without the hassle. Our expert care
+                ensures greener grass, fewer weeds, and a yard you’ll love.
+                Whether it’s routine maintenance or a total lawn transformation,
+                we’ve got you covered.
+              </p>
+              {/* BUTTONS================ */}
+              <div className="mt-10 flex items-center gap-4">
+                <AnchorLink
+                  className="rounded-md bg-neutral-600 px-5 py-3  font-semibold text-white shadow-xs hover:bg-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
+                  onClick={() => setSelectedPage(SelectedPage.ContactUs)}
+                  href={`#${SelectedPage.ContactUs}`}
+                >
+                  Contact Us
+                </AnchorLink>
 
-          <div></div>
-        ) : (
-          // MOBILE SECTION================================================================
-          <div></div>
-        )}
+                <a
+                  href="#"
+                  className="font-semibold text-gray-900 border border-neutral-300 hover:bg-neutral-300 px-5 py-3 rounded-md"
+                >
+                  Your Account <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+            <img
+              alt=""
+              src={HeroImage}
+              className="mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36 grayscale"
+            />
+          </div>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-linear-to-t from-white sm:h-32" />
       </motion.div>
     </section>
   )

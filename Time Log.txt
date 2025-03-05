@@ -10,3 +10,13 @@
 -initialized git for project (10 mins)
 -created logo (20 mins?)
 -built template from previous project (1.5 hrs)
+
+3/4/2025
+
+1 hr
+-converted template to grayscale
+
+3/5/2025
+4 hrs
+-imported tailwind code to scenes
+-
