@@ -1,3 +1,5 @@
+"use client"
+
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
 
@@ -20,15 +22,17 @@ const Home = ({ setSelectedPage }: Props) => {
       />
 
       <motion.div
-        className=" bg-linear-to-b from-indigo-100/20"
+        className="relative isolate overflow-hidden bg-linear-to-b from-indigo-100/20 pt-14"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
       >
         <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-            <Greeting />
-            <h1 className="max-w-2xl text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl lg:col-span-2 xl:col-auto">
-              We make lawns look their best
-            </h1>
+            <div className="max-w-2xl text-5xl  text-zinc-900 sm:text-7xl lg:col-span-2 xl:col-auto">
+              <Greeting />
+              <h1 className="font-semibold tracking-tight text-balance">
+                We make lawns look their best
+              </h1>
+            </div>
             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <p className="text-lg text-zinc-700 sm:text-xl/8">
                 Enjoy a lush, healthy lawn without the hassle. Our expert care
@@ -48,7 +52,7 @@ const Home = ({ setSelectedPage }: Props) => {
 
                 <a
                   href="#"
-                  className="font-semibold text-gray-900 border border-neutral-300 hover:bg-neutral-300 px-5 py-3 rounded-md"
+                  className="font-semibold text-gray-900  hover:bg-neutral-300 px-5 py-3 rounded-md"
                 >
                   Your Account <span aria-hidden="true">→</span>
                 </a>
@@ -61,7 +65,7 @@ const Home = ({ setSelectedPage }: Props) => {
             />
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-linear-to-t from-white sm:h-32" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-linear-to-t from-neutral-50 sm:h-32" />
       </motion.div>
     </section>
   )

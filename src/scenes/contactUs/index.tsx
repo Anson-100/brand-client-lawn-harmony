@@ -23,7 +23,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-neutral-200 ring-1 ring-neutral-900/10 lg:w-1/2">
               <svg
                 aria-hidden="true"
-                className="absolute inset-0 size-full stroke-neutral-500 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+                className="absolute inset-0 size-full stroke-neutral-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
               >
                 <defs>
                   <pattern
@@ -41,7 +41,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <svg
                   x="100%"
                   y={-1}
-                  className="overflow-visible fill-neutral-700"
+                  className="overflow-visible fill-neutral-300"
                 >
                   <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
                 </svg>
@@ -67,13 +67,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <span className="sr-only">Address</span>
                   <BuildingOffice2Icon
                     aria-hidden="true"
-                    className="h-7 w-6 text-gray-400"
+                    className="h-7 w-6 text-zinc-400"
                   />
                 </dt>
                 <dd>
-                  545 Mavis Island
+                  555 Gulf of America Ave
                   <br />
-                  Chicago, IL 99191
+                  Bradenton, FL 34208
                 </dd>
               </div>
               <div className="flex gap-x-4">
@@ -81,7 +81,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <span className="sr-only">Telephone</span>
                   <PhoneIcon
                     aria-hidden="true"
-                    className="h-7 w-6 text-gray-400"
+                    className="h-7 w-6 text-zinc-400"
                   />
                 </dt>
                 <dd>
@@ -89,7 +89,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     href="tel:+1 (555) 234-5678"
                     className="hover:text-gray-900"
                   >
-                    +1 (555) 234-5678
+                    +1 (555) 555-5555
                   </a>
                 </dd>
               </div>
@@ -98,7 +98,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <span className="sr-only">Email</span>
                   <EnvelopeIcon
                     aria-hidden="true"
-                    className="h-7 w-6 text-gray-400"
+                    className="h-7 w-6 text-zinc-400"
                   />
                 </dt>
                 <dd>
@@ -106,7 +106,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     href="mailto:hello@example.com"
                     className="hover:text-gray-900"
                   >
-                    hello@example.com
+                    customerservice@lawnharmony.com
                   </a>
                 </dd>
               </div>
@@ -209,7 +209,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <div className="mt-8 flex justify-end">
               <button
                 type="submit"
-                className="rounded-md bg-neutral-600 px-5 py-3  font-semibold text-white shadow-xs hover:bg-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
+                className="rounded-md bg-neutral-600 px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-xs hover:bg-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
               >
                 Send message
               </button>

@@ -28,7 +28,7 @@ const LinkMobile = ({
 
   return (
     <AnchorLink
-      className={`py-4 px-4  w-5/6 flex items-center ${
+      className={`py-4 px-4  w-5/6 flex items-center hover:bg-neutral-200 rounded-md ${
         selectedPage === scrollTo
           ? "   text-zinc-600"
           : "text-zinc-500  hover:border-zinc-700"

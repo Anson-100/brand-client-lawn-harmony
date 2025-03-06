@@ -24,7 +24,7 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
         className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200 ring-1 shadow-xl shadow-neutral-600/10 ring-neutral-300 sm:-mr-80 lg:-mr-96"
       />
       <motion.div
-        className="overflow-hidden "
+        className="overflow-hidden relative isolate"
         onViewportEnter={() => setSelectedPage(SelectedPage.SectionTwo)}
       >
         <div className="mx-auto max-w-7xl px-6 sm:mt-0 lg:px-8">
@@ -73,11 +73,11 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
         </div>
 
         {/* Image section */}
-        <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+        <div className="mt-32 sm:mt-40 ">
           <img
             alt=""
             src={AboutImage}
-            className="aspect-5/2 w-full object-cover xl:rounded-3xl grayscale"
+            className="aspect-5/2 w-full object-cover  grayscale"
           />
         </div>
       </motion.div>

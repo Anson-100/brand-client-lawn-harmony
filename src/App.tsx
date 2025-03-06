@@ -5,7 +5,7 @@ import SectionTwo from "@/scenes/sectionTwo"
 import SectionThree from "@/scenes/sectionThree"
 import ContactUs from "@/scenes/contactUs"
 import RouteOne from "@/scenes/routeOne"
-import LineGradient from "@/components/LineGradient"
+// import LineGradient from "@/components/LineGradient"
 import Footer from "@/scenes/footer"
 
 import { useEffect, useState } from "react"

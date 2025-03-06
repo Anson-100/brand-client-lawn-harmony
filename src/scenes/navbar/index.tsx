@@ -10,8 +10,9 @@ import {
   HomeIcon,
   PaperAirplaneIcon,
   DocumentTextIcon,
-  PhoneIcon,
 } from "@heroicons/react/24/solid"
+
+import { PhoneIcon } from "@heroicons/react/24/outline"
 
 import { SelectedPage } from "@/shared/types"
 import useMediaQuery from "@/hooks/useMediaQuery"
@@ -130,19 +131,19 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               <div className="flex">
                 <a
                   href="tel:+1234567890"
-                  className="flex items-center gap-2 px-4 py-2 text-zinc-600  rounded-lg hover:bg-zinc-100 transition"
+                  className="flex items-center gap-2 px-4 py-2 text-zinc-400  rounded-lg hover:bg-zinc-100 transition"
                 >
                   <PhoneIcon className="w-6 h-6" />
                 </a>
 
                 <button
-                  className="rounded-full p-2"
+                  className="rounded-full p-2 hover:cursor-pointer"
                   onClick={() => setIsMenuToggled(!isMenuToggled)}
                 >
                   {!isMenuToggled ? (
-                    <Bars2Icon className="w-6 text-zinc-600" />
+                    <Bars2Icon className="w-6 text-zinc-500" />
                   ) : (
-                    <XMarkIcon className="w-6 text-zinc-600" />
+                    <XMarkIcon className="w-6 text-zinc-500" />
                   )}
                 </button>
               </div>
@@ -155,7 +156,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       {!isAboveMediumScreens && isMenuToggled && (
         <div
           ref={menuRef}
-          className={`fixed mt-[83px] top-0 right-0 w-full sm:w-1/3 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 transition-opacity duration-200 border-b sm:border-l border-neutral-300 ${
+          className={`fixed mt-[83px] top-0 right-0 w-full md:w-1/3 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 transition-opacity duration-200 border-b sm:border-l border-neutral-300 ${
             isMenuToggled ? "h-auto opacity-100" : "h-0 opacity-0"
           }`}
         >
@@ -206,21 +207,22 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 toggleMenu={() => setIsMenuToggled(false)}
                 Icon={PaperAirplaneIcon}
               />
-
-              <Link
-                to="/routeOne"
-                onClick={() => {
-                  sessionStorage.setItem("selectedPage", "routeone")
-                  setIsMenuToggled(false)
-                }}
-                className="pt-4 pb-4 px-4 w-full pl-[4.25rem] sm:pl-12 bg-neutral-200 flex items-center S text-zinc-600"
-              >
-                <DocumentTextIcon className="h-5 w-5 mr-4 text-zinca-300" />
-                <p>
-                  Sign In{" "}
-                  <span className="text-neutral-400 text-lg">&rarr;</span>
-                </p>
-              </Link>
+              <div className="w-full mb-4">
+                <Link
+                  to="/routeOne"
+                  onClick={() => {
+                    sessionStorage.setItem("selectedPage", "routeone")
+                    setIsMenuToggled(false)
+                  }}
+                  className="pt-4 pb-4 w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:bg-neutral-200 rounded-md"
+                >
+                  <DocumentTextIcon className="h-5 w-5 mr-4 " />
+                  <p>
+                    Sign In{" "}
+                    <span className="text-neutral-400 text-lg">&rarr;</span>
+                  </p>
+                </Link>
+              </div>
             </>
           </div>
         </div>

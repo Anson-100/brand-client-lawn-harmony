@@ -71,22 +71,26 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
           </Link>
         </nav>
         <div className="mt-16 flex justify-center gap-x-10">
-          <a
-            href="https://www.instagram.com/ohiofitnessandmartialarts/"
-            target="_blank"
+          <span
             rel="noopener noreferrer"
             className="opacity-80 hover:opacity-100"
           >
-            <img src={IconInsta} alt="Instagram" className="w-8 h-8" />
-          </a>
-          <a
-            href="https://www.facebook.com/ofma5425/"
-            target="_blank"
+            <img
+              src={IconInsta}
+              alt="Instagram"
+              className="w-8 h-8 hover:cursor-pointer"
+            />
+          </span>
+          <span
             rel="noopener noreferrer"
             className="opacity-80 hover:opacity-100"
           >
-            <img src={IconFB} alt="Facebook" className="w-8 h-8" />
-          </a>
+            <img
+              src={IconFB}
+              alt="Facebook"
+              className="w-8 h-8 hover:cursor-pointer"
+            />
+          </span>
           <span className="opacity-80 hover:opacity-100">
             <img
               src={IconYT}
