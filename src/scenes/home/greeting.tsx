@@ -25,7 +25,7 @@ const Greeting = () => {
   }, [])
 
   return (
-    <p className="text-base font-semibold text-zinc-600 tracking-tight mb-6">
+    <p className="text-base font-semibold text-zinc-600 tracking-tight ">
       {greeting}
     </p>
   )

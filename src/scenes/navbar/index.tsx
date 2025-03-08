@@ -9,7 +9,10 @@ import {
   XMarkIcon,
   HomeIcon,
   PaperAirplaneIcon,
-  DocumentTextIcon,
+  WrenchScrewdriverIcon,
+  UserCircleIcon,
+  StarIcon,
+  InformationCircleIcon,
 } from "@heroicons/react/24/solid"
 
 import { PhoneIcon } from "@heroicons/react/24/outline"
@@ -52,7 +55,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       <div
         className={`${navbarBackground} ${flexBetween} border-b border-neutral-300 fixed border-t-[5px] border-t-neutral-700 top-0 z-30 w-full max-w-full backdrop-blur-md h-[84px]`}
       >
-        <div className={`${flexBetween} mx-auto w-5/6`}>
+        <div className={`${flexBetween} mx-auto w-full px-4 sm:px-0 sm:w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
             <LogoLinkNav />
@@ -128,7 +131,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 </div>
               </div>
             ) : (
-              <div className="flex">
+              <div className="flex items-center justify-center">
                 <a
                   href="tel:+1234567890"
                   className="flex items-center gap-2 px-4 py-2 text-zinc-400  rounded-lg hover:bg-zinc-100 transition"
@@ -156,12 +159,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       {!isAboveMediumScreens && isMenuToggled && (
         <div
           ref={menuRef}
-          className={`fixed mt-[83px] top-0 right-0 w-full md:w-1/3 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 transition-opacity duration-200 border-b sm:border-l border-neutral-300 ${
+          className={`fixed mt-[83px] top-0 right-0 w-full md:w-1/3 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 transition-opacity  border-b sm:border-l border-neutral-300 ${
             isMenuToggled ? "h-auto opacity-100" : "h-0 opacity-0"
           }`}
         >
           {/* MENU ITEMS */}
-          <div className="flex flex-col items-center text-lg z-50 ">
+          <div className="mt-2 flex flex-col items-center text-lg z-50 mx-2">
             <>
               <LinkMobile
                 scrollTo={SelectedPage.Home}
@@ -174,29 +177,29 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionOne}
-                displayText="Section 1"
+                displayText="Services"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
-                Icon={HomeIcon}
+                Icon={WrenchScrewdriverIcon}
               />
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionTwo}
-                displayText="Section 2"
+                displayText="About Us"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
-                Icon={HomeIcon}
+                Icon={InformationCircleIcon}
               />
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionThree}
-                displayText="Section 3"
+                displayText="Testimonials"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
-                Icon={HomeIcon}
+                Icon={StarIcon}
               />
 
               <LinkMobile
@@ -207,6 +210,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 toggleMenu={() => setIsMenuToggled(false)}
                 Icon={PaperAirplaneIcon}
               />
+              <div className="w-11/12 h-[1px] bg-neutral-300 my-2"></div>
               <div className="w-full mb-4">
                 <Link
                   to="/routeOne"
@@ -214,9 +218,9 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     sessionStorage.setItem("selectedPage", "routeone")
                     setIsMenuToggled(false)
                   }}
-                  className="pt-4 pb-4 w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:bg-neutral-200 rounded-md"
+                  className="font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
                 >
-                  <DocumentTextIcon className="h-5 w-5 mr-4 " />
+                  <UserCircleIcon className="h-5 w-5 mr-4" />
                   <p>
                     Sign In{" "}
                     <span className="text-neutral-400 text-lg">&rarr;</span>

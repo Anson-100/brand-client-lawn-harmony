@@ -19,4 +19,17 @@
 3/5/2025
 4 hrs
 -imported tailwind code to scenes
--
+-refactored imported code
+-converted layout to grayscale
+
+3/6/2025
+2 hrs
+-updated tailwind and other dependencies so layout would not break
+-added descriptions and tweaked layout
+
+3/7/2025
+0.5 hrs
+-uploaded new build to s3
+-sent grayscale mockup to client
+
+3/8/2025

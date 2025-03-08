@@ -1,5 +1,6 @@
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
+import SceneHeader from "@/shared/SceneHeader"
 
 import {
   BuildingOffice2Icon,
@@ -18,7 +19,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
         className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2"
         onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
       >
-        <div className="relative px-6 pt-24 pb-20 sm:py-36 xl:py-48 lg:static lg:px-8 ">
+        <div className="relative px-6 pt-24 pb-20 sm:py-36 xl:py-48 lg:static lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-neutral-200 ring-1 ring-neutral-900/10 lg:w-1/2">
               <svg
@@ -53,13 +54,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 />
               </svg>
             </div>
-            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-              Get in touch
-            </h2>
+            <SceneHeader sceneTitle="Contact Us" tagline="Get in Touch" />
+
             <p className="mt-6 text-lg/8 text-gray-600">
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci
-              molestie a eu arcu. Sed ut tincidunt integer elementum id sem.
-              Arcu sed malesuada et magna.
+              Have questions or need a quote? We're here to help with all your
+              lawn and landscaping needs. Reach out by phone, email, or the form
+              on this page and we’ll get back to you soon. We look forward to
+              hearing from you!
             </p>
             <dl className="mt-10 space-y-4 text-base/7 text-gray-600">
               <div className="flex gap-x-4">

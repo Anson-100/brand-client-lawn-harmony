@@ -3,6 +3,8 @@ import { motion } from "framer-motion"
 
 import ServiceImage from "@/assets/serviceImage.png"
 
+import SceneHeader from "@/shared/SceneHeader"
+
 import {
   FunnelIcon,
   HomeModernIcon,
@@ -41,7 +43,7 @@ const SectionOne = ({ setSelectedPage }: Props) => {
       className="overflow-hidden relative isolate py-24 xl:py-40 min-h-full"
     >
       <motion.div
-        className="mx-auto max-w-7xl px-6 lg:px-8 "
+        className="mx-auto max-w-7xl px-5 lg:px-8 "
         onViewportEnter={() => setSelectedPage(SelectedPage.SectionOne)}
       >
         <div
@@ -51,13 +53,11 @@ const SectionOne = ({ setSelectedPage }: Props) => {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:ml-auto lg:pt-4 lg:pl-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-base/7 font-semibold text-zinc-600">
-                Services
-              </h2>
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                Lawn care made easy. Results you can see.
-              </p>
-              <p className="mt-6 text-lg/8 text-gray-600">
+              <SceneHeader
+                sceneTitle="Services"
+                tagline="Lawn care made easy. Results you can see."
+              />
+              <p className="mt-6 text-lg/8 text-gray-600 hidden sm:inline-block">
                 A well-maintained lawn isn’t just about looks—it’s about
                 creating a healthy, thriving outdoor space. Our expert team
                 ensures your yard stays green, lush, and weed-free, so you can

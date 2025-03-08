@@ -1,12 +1,20 @@
 import React from "react"
 
 type Props = {
-  children: React.ReactNode
+  sceneTitle: string
+  tagline: string
+  children?: React.ReactNode
 }
 
-const SceneHeader = ({ children }: Props) => {
+const SceneHeader = ({ sceneTitle, tagline, children }: Props) => {
   return (
-    <h1 className="basis-3/5 font-montserrat text-3xl font-bold">{children}</h1>
+    <div className="flex flex-col gap-2">
+      <h3 className="font-semibold tracking-tight">{sceneTitle}</h3>
+      <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+        {tagline}
+      </h2>
+      {children}
+    </div>
   )
 }
 

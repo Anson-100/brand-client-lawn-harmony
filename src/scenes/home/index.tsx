@@ -22,14 +22,14 @@ const Home = ({ setSelectedPage }: Props) => {
       />
 
       <motion.div
-        className="relative isolate overflow-hidden bg-linear-to-b from-indigo-100/20 pt-14"
+        className="relative isolate overflow-hidden bg-linear-to-b from-indigo-100/20 pt-8 sm:pt-14"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
       >
-        <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-30 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
             <div className="max-w-2xl text-5xl  text-zinc-900 sm:text-7xl lg:col-span-2 xl:col-auto">
               <Greeting />
-              <h1 className="font-semibold tracking-tight text-balance">
+              <h1 className="font-semibold tracking-tight text-balance mt-4 sm:mt-4">
                 We make lawns look their best
               </h1>
             </div>
@@ -43,7 +43,7 @@ const Home = ({ setSelectedPage }: Props) => {
               {/* BUTTONS================ */}
               <div className="mt-10 flex items-center gap-4">
                 <AnchorLink
-                  className="rounded-md bg-neutral-600 px-5 py-3  font-semibold text-white shadow-xs hover:bg-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
+                  className=" flex items-center justify-center rounded-md bg-neutral-600 px-5 py-3  font-semibold text-white shadow-xs hover:bg-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
                   onClick={() => setSelectedPage(SelectedPage.ContactUs)}
                   href={`#${SelectedPage.ContactUs}`}
                 >
@@ -52,9 +52,12 @@ const Home = ({ setSelectedPage }: Props) => {
 
                 <a
                   href="#"
-                  className="font-semibold text-gray-900  hover:bg-neutral-300 px-5 py-3 rounded-md"
+                  className="group transition-all duration-100 font-semibold text-gray-900 hover:bg-neutral-100 px-5 py-3 rounded-md flex items-center"
                 >
-                  Your Account <span aria-hidden="true">→</span>
+                  Your Account
+                  <span className="ml-2 text-zinc-500 " aria-hidden="true">
+                    →
+                  </span>
                 </a>
               </div>
             </div>

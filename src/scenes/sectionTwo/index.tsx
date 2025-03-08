@@ -3,6 +3,8 @@ import { motion } from "framer-motion"
 
 import AboutImage from "@/assets/aboutImage.png"
 
+import SceneHeader from "@/shared/SceneHeader"
+
 const stats = [
   { value: "10+ years", label: "in business" },
   { value: "Sarasota & surrounding areas", label: "communities served" },
@@ -17,7 +19,7 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="sectiontwo"
-      className="min-h-full relative isolate overflow-hidden pt-32 xl:pt-40"
+      className="min-h-full relative isolate overflow-hidden pt-24 xl:pt-40"
     >
       <div
         aria-hidden="true"
@@ -27,17 +29,12 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
         className="overflow-hidden relative isolate"
         onViewportEnter={() => setSelectedPage(SelectedPage.SectionTwo)}
       >
-        <div className="mx-auto max-w-7xl px-6 sm:mt-0 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:mt-0 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-            <h2 className="text-base/7 font-semibold text-zinc-600">
-              About Us
-            </h2>
-            <p className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-              Our mission
-            </p>
+            <SceneHeader sceneTitle="About Us" tagline="Our Mission" />
             <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
               <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
-                <p className="text-xl/8 text-gray-600">
+                <p className="text-lg/8 sm:text-xl/8 text-gray-600">
                   At Lawn Harmony, we believe a beautiful lawn brings people
                   together. With years of experience, a commitment to quality,
                   and a passion for transforming outdoor spaces, we make lawn
@@ -77,7 +74,7 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
           <img
             alt=""
             src={AboutImage}
-            className="aspect-5/2 w-full object-cover  grayscale"
+            className="aspect-5/2 w-full object-cover grayscale"
           />
         </div>
       </motion.div>

@@ -28,7 +28,7 @@ const LinkMobile = ({
 
   return (
     <AnchorLink
-      className={`py-4 px-4  w-5/6 flex items-center hover:bg-neutral-200 rounded-md ${
+      className={`font-semibold py-4 px-4 w-full sm:w-5/6 flex items-center hover:text-zinc-600 ${
         selectedPage === scrollTo
           ? "   text-zinc-600"
           : "text-zinc-500  hover:border-zinc-700"
@@ -36,7 +36,7 @@ const LinkMobile = ({
       href={`#${scrollTo}`} // Now scrolling is based on `scrollTo`
       onClick={handleClick}
     >
-      {PageIcon && <PageIcon className="h-5 w-5 mr-4" />}{" "}
+      {PageIcon && <PageIcon className="h-5 mr-4" />}{" "}
       {/* Render icon if provided */}
       {displayText} {/* Display the proper link text */}
     </AnchorLink>
