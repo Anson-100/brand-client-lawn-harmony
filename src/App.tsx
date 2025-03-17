@@ -5,6 +5,8 @@ import SectionTwo from "@/scenes/sectionTwo"
 import SectionThree from "@/scenes/sectionThree"
 import ContactUs from "@/scenes/contactUs"
 import RouteOne from "@/scenes/routeOne"
+import RouteTwo from "@/scenes/routeTwo"
+
 // import LineGradient from "@/components/LineGradient"
 import Footer from "@/scenes/footer"
 
@@ -64,8 +66,9 @@ function App() {
             }
           />
 
-          {/* Standalone Route for Waivers */}
+          {/* Standalone Route for FAQ and User Login */}
           <Route path="/routeOne" element={<RouteOne />} />
+          <Route path="/routeTwo" element={<RouteTwo />} />
         </Routes>
       </div>
     </Router>

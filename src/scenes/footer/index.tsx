@@ -1,12 +1,12 @@
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { SelectedPage } from "@/shared/types"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import LinkFooter from "./LinkFooter"
 import LogoLinkFooter from "./LogoLinkFooter"
-import IconFB from "@/assets/IconFB.svg"
-import IconInsta from "@/assets/IconInsta.svg"
-import IconTikTok from "@/assets/IconTikTok.svg"
-import IconYT from "@/assets/IconYT.svg"
+// import IconFB from "@/assets/IconFB.svg"
+// import IconInsta from "@/assets/IconInsta.svg"
+// import IconTikTok from "@/assets/IconTikTok.svg"
+// import IconYT from "@/assets/IconYT.svg"
 
 type Props = {
   selectedPage: SelectedPage
@@ -58,20 +58,26 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
             setSelectedPage={setSelectedPage}
           />
 
-          <Link
-            to="/routeOne"
-            onClick={() => {
-              sessionStorage.setItem("selectedPage", "routeone")
-            }}
+          {/* <a
+            href="https://v3.gorilladesk.com/auth/login/?nav=menu"
+            target="_blank"
+            rel="noopener noreferrer"
             className=" text-gray-200 group flex items-center justify-center"
           >
             <p className="group-hover:underline">Sign In</p>
 
             <span className="ml-1 text-zinc-500 text-lg">&rarr;</span>
-          </Link>
+          </a> */}
+          <button
+            onClick={() => (window as any).GorillaDesk("showPortal")}
+            className="text-gray-200 group flex items-center justify-center hover:cursor-pointer"
+          >
+            <p className="group-hover:underline">Sign In</p>
+            <span className="ml-1 text-zinc-500 text-lg">&rarr;</span>
+          </button>
         </nav>
         <div className="mt-16 flex justify-center gap-x-10">
-          <span
+          {/* <span
             rel="noopener noreferrer"
             className="opacity-80 hover:opacity-100"
           >
@@ -104,9 +110,10 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
               alt="TikTok"
               className="w-8 h-8 hover:cursor-pointer"
             />
-          </span>
+          </span> */}
         </div>
-        <p className="mt-10 text-center text-sm/6 text-gray-400">
+
+        <p className="m-10 text-center text-sm/6 text-gray-400">
           &copy; 2025 Lawn Harmony LLC. All rights reserved.
         </p>
       </div>

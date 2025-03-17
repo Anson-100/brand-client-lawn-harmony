@@ -13,6 +13,8 @@ import {
   UserCircleIcon,
   StarIcon,
   InformationCircleIcon,
+  QuestionMarkCircleIcon,
+  PhotoIcon,
 } from "@heroicons/react/24/solid"
 
 import { PhoneIcon } from "@heroicons/react/24/outline"
@@ -29,9 +31,9 @@ type Props = {
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between"
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1300px)")
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1360px)")
 
-  const navbarBackground = isTopOfPage ? "bg-neutral-100" : "bg-neutral-100"
+  const navbarBackground = isTopOfPage ? "" : ""
 
   const menuRef = useRef<HTMLDivElement>(null)
   const location = useLocation() // Get the current route
@@ -49,11 +51,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
   // Check if the current route is `/waivers`
   const isRouteOne = location.pathname === "/routeOne"
+  const isRouteTwo = location.pathname === "/routeTwo"
 
   return (
     <nav className="">
       <div
-        className={`${navbarBackground} ${flexBetween} border-b border-neutral-300 fixed border-t-[5px] border-t-neutral-700 top-0 z-30 w-full max-w-full backdrop-blur-md h-[84px]`}
+        className={`${navbarBackground} ${flexBetween} border-b border-neutral-200 fixed  top-0 z-30 w-full max-w-full bg-stone-100 h-[72px] `}
       >
         <div className={`${flexBetween} mx-auto w-full px-4 sm:px-0 sm:w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
@@ -61,7 +64,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
             <LogoLinkNav />
 
             {/* RIGHT SIDE */}
-            {isRouteOne ? (
+            {isRouteOne || isRouteTwo ? (
               // Simplified Navbar for Waivers Page
               <div>
                 <Link
@@ -70,7 +73,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     setSelectedPage(SelectedPage.Home)
                     sessionStorage.setItem("selectedPage", "home")
                   }}
-                  className="flex items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 m-2  hover:bg-neutral-300 rounded-md border border-neutral-300"
+                  className="flex items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 m-2"
                 >
                   <div className=" text-zinc-500 text-lg">&larr;</div>
                   Home{" "}
@@ -88,46 +91,65 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
                   <LinkDesktop
                     scrollTo={SelectedPage.SectionOne}
                     displayText="Services"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
                   <LinkDesktop
                     scrollTo={SelectedPage.SectionTwo}
                     displayText="About Us"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
                   <LinkDesktop
                     scrollTo={SelectedPage.SectionThree}
                     displayText="Testimonials"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
                   <LinkDesktop
                     scrollTo={SelectedPage.ContactUs}
                     displayText="Contact Us"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-
-                  <div className="h-6 w-[1px] mb-1 bg-zinc-600"></div>
+                  <div className="h-6 w-[1px] mb-1 bg-neutral-300"></div>
                   <Link
                     to="/routeOne"
                     onClick={() => {
                       sessionStorage.setItem("selectedPage", "routeone")
                     }}
-                    className="flex items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 m-2  hover:bg-neutral-300 rounded-md border border-neutral-300"
+                    className="flex items-center  border-transparent hover:border-neutral-300 text-zinc-800 justify-center  mt-1 pb-1 px-1 mx-2 border-b-[2px] font-semibold"
+                  >
+                    FAQ
+                  </Link>{" "}
+                  <Link
+                    to="/routeTwo"
+                    onClick={() => {
+                      sessionStorage.setItem("selectedPage", "routetwo")
+                    }}
+                    className="flex items-center  border-transparent hover:border-neutral-300 text-zinc-800 justify-center  mt-1 pb-1 px-1 mx-2 border-b-[2px] font-semibold"
+                  >
+                    Gallery
+                  </Link>
+                  {/* <a
+                    href="https://v3.gorilladesk.com/auth/login/?nav=menu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex hover:cursor-pointer items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 rounded-md border border-neutral-300 ml-2"
                   >
                     Customer Sign In
-                    <div className=" text-neutral-500 text-lg">&rarr;</div>
-                  </Link>
+                    <div className="text-neutral-500 text-lg">&rarr;</div>
+                  </a> */}
+                  <button
+                    onClick={() => (window as any).GorillaDesk("showPortal")}
+                    className="flex items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 rounded-md border border-neutral-300 ml-2 hover:cursor-pointer"
+                  >
+                    Customer Sign In
+                    <div className="text-neutral-500 text-lg">→</div>
+                  </button>
                 </div>
               </div>
             ) : (
@@ -159,7 +181,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       {!isAboveMediumScreens && isMenuToggled && (
         <div
           ref={menuRef}
-          className={`fixed mt-[83px] top-0 right-0 w-full md:w-1/3 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 transition-opacity  border-b sm:border-l border-neutral-300 ${
+          className={`fixed mt-[71px] top-0 right-0 w-full md:w-2/5 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 border-b sm:border-l border-neutral-300 ${
             isMenuToggled ? "h-auto opacity-100" : "h-0 opacity-0"
           }`}
         >
@@ -218,14 +240,44 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     sessionStorage.setItem("selectedPage", "routeone")
                     setIsMenuToggled(false)
                   }}
-                  className="font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
+                  className=" font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
+                >
+                  <QuestionMarkCircleIcon className="h-5 w-5 mr-4" />
+                  <p>FAQ</p>
+                </Link>
+                <Link
+                  to="/routeTwo"
+                  onClick={() => {
+                    sessionStorage.setItem("selectedPage", "routetwo")
+                    setIsMenuToggled(false)
+                  }}
+                  className="hover:cursor-pointer font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
+                >
+                  <PhotoIcon className="h-5 w-5 mr-4" />
+                  <p>Gallery</p>
+                </Link>
+                {/* <a
+                  href="https://v3.gorilladesk.com/auth/login/?nav=menu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:cursor-pointer font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
                 >
                   <UserCircleIcon className="h-5 w-5 mr-4" />
                   <p>
                     Sign In{" "}
                     <span className="text-neutral-400 text-lg">&rarr;</span>
                   </p>
-                </Link>
+                </a> */}
+                <button
+                  onClick={() => (window as any).GorillaDesk("showPortal")}
+                  className="hover:cursor-pointer font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
+                >
+                  <UserCircleIcon className="h-5 w-5 mr-4" />
+                  <p>
+                    Sign In{" "}
+                    <span className="text-neutral-400 text-lg">&rarr;</span>
+                  </p>
+                </button>
               </div>
             </>
           </div>

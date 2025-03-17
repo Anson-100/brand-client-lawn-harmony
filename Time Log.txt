@@ -32,4 +32,38 @@
 -uploaded new build to s3
 -sent grayscale mockup to client
 
-3/8/2025
+3/9/2025
+1 hr
+-adjusted scene spacing
+-started adding color
+
+3/10/2025
+
+4 hrs at least
+
+1.5 hrs more going
+
+-tinkering around
+-adding faq page
+-fucking around w logo
+-gonna add up to more tonight when I set client up w aws account
+
+3/13/2025
+
+4 hrs at least
+
+-over an hour wrestling with stupid gorilla desk api
+-just moving stuff around and creating new route page and stuff
+
+
+3/14/2025
+
+1.5 hrs
+
+-adjusting things and touching up
+
+
+=========================================
+what is left? well, I need to make the carousel, get email form set up, get backend for email set up, change content on testimonials page
+=========================================
+

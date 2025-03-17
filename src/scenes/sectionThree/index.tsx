@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import SceneHeader from "@/shared/SceneHeader"
 
 const featuredTestimonial = {
-  body: "Lawn Harmony completely transformed our yard! The team was professional, efficient, and truly passionate about their work. Our lawn has never looked better!",
+  body: "Lawn Harmony completely transformed our yard! Matt and his team were professional, efficient, and truly passionate about their work. Our lawn has never looked better!",
   author: {
     name: "Brenna Goyette",
     handle: "Sarasota",
@@ -29,7 +29,7 @@ const testimonials = [
       {
         body: "Amazing service! Lawn Harmony designed and installed a beautiful landscape for our front yard. The attention to detail was outstanding.",
         author: {
-          name: "Mark Robertson",
+          name: "Sara Dos Anjos",
           handle: "Sarasota",
           imageUrl:
             "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -38,7 +38,7 @@ const testimonials = [
     ],
     [
       {
-        body: "We’ve used several landscaping companies before, but Lawn Harmony is by far the best. Our lawn is always lush and green thanks to their maintenance services!",
+        body: "We’ve used several landscaping companies before, but Lawn Harmony is by far the best. The owner, Matt, is super friendly and truly cares about the quality of his work. Our lawn has never looked better!",
         author: {
           name: "Lindsay Walton",
           handle: "Lakewood Ranch",
@@ -96,8 +96,37 @@ const SectionThree = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="sectionthree"
-      className="relative isolate  pt-24 pb-32 sm:pt-32 w-full"
+      className="relative isolate pt-24 pb-32 sm:pt-32 w-full "
     >
+      <svg
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-neutral-400/60 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] "
+      >
+        <defs>
+          <pattern
+            x="50%"
+            y={-1}
+            id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+            width={200}
+            height={200}
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <svg x="50%" y={-1} className="overflow-visible fill-neutral-200">
+          <path
+            d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+            strokeWidth={0}
+          />
+        </svg>
+        <rect
+          fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
+          width="100%"
+          height="100%"
+          strokeWidth={0}
+        />
+      </svg>
       {/* =============================================== */}
       <motion.div
         className="mx-auto max-w-7xl px-5 lg:px-8"
@@ -111,7 +140,7 @@ const SectionThree = ({ setSelectedPage }: Props) => {
           />
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
+        <div className="mx-auto mt-12 sm:mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
           <figure className="rounded-2xl bg-white ring-1 shadow-lg ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1">
             <blockquote className="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12 sm:text-xl/8">
               <p>{`“${featuredTestimonial.body}”`}</p>
@@ -120,7 +149,7 @@ const SectionThree = ({ setSelectedPage }: Props) => {
               <img
                 alt=""
                 src={featuredTestimonial.author.imageUrl}
-                className="w-10 flex-none rounded-full bg-gray-50 grayscale"
+                className="w-10 flex-none rounded-full bg-gray-50 "
               />
               <div className="flex-auto">
                 <div className="font-semibold">
@@ -164,7 +193,7 @@ const SectionThree = ({ setSelectedPage }: Props) => {
                         <img
                           alt=""
                           src={testimonial.author.imageUrl}
-                          className="w-10 rounded-full bg-gray-50 grayscale"
+                          className="w-10 rounded-full bg-gray-50 "
                         />
                         <div>
                           <div className="font-semibold">

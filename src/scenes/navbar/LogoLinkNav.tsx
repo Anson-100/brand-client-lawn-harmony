@@ -7,7 +7,7 @@ const LogoLink: React.FC = () => {
   const lowerCasePage = "home"
 
   const LogoImage: React.FC = () => (
-    <img src={LogoIcon} alt="Logo Main" className="h-14 grayscale" />
+    <img src={LogoIcon} alt="Logo Main" className="h-15 " />
   )
 
   return isHomePage ? (

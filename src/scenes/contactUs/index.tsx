@@ -14,14 +14,14 @@ type Props = {
 
 const ContactUs = ({ setSelectedPage }: Props) => {
   return (
-    <section id="contactus" className="min-h-full relative isolate">
+    <section id="contactus" className="min-h-[100vh] relative isolate ">
       <motion.div
         className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2"
         onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
       >
-        <div className="relative px-6 pt-24 pb-20 sm:py-36 xl:py-48 lg:static lg:px-8">
+        <div className="relative px-6 pt-24 pb-20 sm:py-36 xl:py-40 flex items-center lg:static lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-neutral-200 ring-1 ring-neutral-900/10 lg:w-1/2">
+            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-neutral-100 ring-1 ring-neutral-900/10 lg:w-1/2">
               <svg
                 aria-hidden="true"
                 className="absolute inset-0 size-full stroke-neutral-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -42,7 +42,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <svg
                   x="100%"
                   y={-1}
-                  className="overflow-visible fill-neutral-300"
+                  className="overflow-visible fill-neutral-200/60"
                 >
                   <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
                 </svg>
@@ -68,7 +68,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <span className="sr-only">Address</span>
                   <BuildingOffice2Icon
                     aria-hidden="true"
-                    className="h-7 w-6 text-zinc-400"
+                    className="h-7 w-6 text-emerald-500"
                   />
                 </dt>
                 <dd>
@@ -82,7 +82,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <span className="sr-only">Telephone</span>
                   <PhoneIcon
                     aria-hidden="true"
-                    className="h-7 w-6 text-zinc-400"
+                    className="h-7 w-6 text-emerald-500"
                   />
                 </dt>
                 <dd>
@@ -99,7 +99,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <span className="sr-only">Email</span>
                   <EnvelopeIcon
                     aria-hidden="true"
-                    className="h-7 w-6 text-zinc-400"
+                    className="h-7 w-6 text-emerald-500"
                   />
                 </dt>
                 <dd>
@@ -117,7 +117,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
         <form
           action="#"
           method="POST"
-          className="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 sm:py-36 xl:py-48"
+          className="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 sm:py-36 xl:py-32 2xl:py-40 my-auto"
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -210,7 +210,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <div className="mt-8 flex justify-end">
               <button
                 type="submit"
-                className="rounded-md bg-neutral-600 px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-xs hover:bg-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
+                className="rounded-md bg-emerald-600 px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
               >
                 Send message
               </button>

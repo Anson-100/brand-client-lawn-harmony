@@ -19,11 +19,11 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="sectiontwo"
-      className="min-h-full relative isolate overflow-hidden pt-24 xl:pt-40"
+      className="min-h-full relative isolate overflow-hidden pt-24 xl:pt-32 "
     >
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200 ring-1 shadow-xl shadow-neutral-600/10 ring-neutral-300 sm:-mr-80 lg:-mr-96"
+        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200/10  ring-1 shadow-xl shadow-neutral-600/20 ring-neutral-200 sm:-mr-80 lg:-mr-96"
       />
       <motion.div
         className="overflow-hidden relative isolate"
@@ -74,7 +74,7 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
           <img
             alt=""
             src={AboutImage}
-            className="aspect-5/2 w-full object-cover grayscale"
+            className="aspect-5/2 w-full object-cover"
           />
         </div>
       </motion.div>

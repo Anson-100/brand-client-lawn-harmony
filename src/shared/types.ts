@@ -5,6 +5,7 @@ export enum SelectedPage {
   SectionThree = "sectionthree",
   ContactUs = "contactus",
   RouteOne = "routeone",
+  RouteTwo = "routetwo",
 }
 
 export interface BenefitType {
