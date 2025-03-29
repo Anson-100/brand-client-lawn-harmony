@@ -19,7 +19,7 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="sectiontwo"
-      className="min-h-full relative isolate overflow-hidden pt-24 xl:pt-32 "
+      className="min-h-full relative isolate overflow-hidden"
     >
       <div
         aria-hidden="true"

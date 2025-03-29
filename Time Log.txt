@@ -67,3 +67,44 @@
 what is left? well, I need to make the carousel, get email form set up, get backend for email set up, change content on testimonials page
 =========================================
 
+3/15/2025
+
+2 hrs
+
+-probably more; trying to get stupid ass aws ses to work
+
+3/16/2025
+
+1 hr
+
+-made carousel
+
+3/17/2025
+
+2 hrs
+
+-moved carousel from route
+-fixed nav
+-other styling shit
+
+
+
+
+==================================
+REMAINING STUFF
+-email setup
+-carousel responsiveness
+-carousel buttons
+-change color?
+-change logo?
+-rename routOne (faq section)
+-phone number button (correct phone number)
+-faq questions
+-black and white overlay for sign up dialog?
+-bg overlay for sign up dialog?
+
+
+=========
+-fix footer
+-generate midjourney images for review section
+==================================

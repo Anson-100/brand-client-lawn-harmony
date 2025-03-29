@@ -8,7 +8,7 @@ type Props = {
 
 const SceneHeader = ({ sceneTitle, tagline, children }: Props) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 pt-24 xl:pt-30">
       <h3 className="font-semibold tracking-tight text-zinc-600">
         {sceneTitle}
       </h3>

@@ -54,11 +54,11 @@ const RouteOne: React.FC = () => {
   return (
     <section
       id="routeone"
-      className="relative isolate overflow-hidden pt-24 min-h-[100vh] sm:pt-32 pb-12 sm:pb-24 w-full px-5 F"
+      className="relative isolate overflow-hidden  min-h-[100vh] pb-12 sm:pb-24 w-full px-5"
     >
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200/10  ring-1 shadow-xl shadow-neutral-600/10 ring-neutral-200 sm:-mr-80 lg:-mr-96"
+        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200/10 ring-1 shadow-xl shadow-neutral-600/10 ring-neutral-200 sm:-mr-80 lg:-mr-96"
       />
       {/* HEADER--------- */}
       <div className="sm:mx-auto sm:text-center">

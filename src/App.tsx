@@ -56,6 +56,8 @@ function App() {
 
                 <SectionThree setSelectedPage={setSelectedPage} />
 
+                <RouteTwo setSelectedPage={setSelectedPage} />
+
                 <ContactUs setSelectedPage={setSelectedPage} />
 
                 <Footer
@@ -68,7 +70,7 @@ function App() {
 
           {/* Standalone Route for FAQ and User Login */}
           <Route path="/routeOne" element={<RouteOne />} />
-          <Route path="/routeTwo" element={<RouteTwo />} />
+          {/* <Route path="/routeTwo" element={<RouteTwo />} /> */}
         </Routes>
       </div>
     </Router>

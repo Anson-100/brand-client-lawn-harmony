@@ -31,7 +31,7 @@ type Props = {
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between"
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1360px)")
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1460px)")
 
   const navbarBackground = isTopOfPage ? "" : ""
 
@@ -51,12 +51,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
   // Check if the current route is `/waivers`
   const isRouteOne = location.pathname === "/routeOne"
-  const isRouteTwo = location.pathname === "/routeTwo"
+  // const isRouteTwo = location.pathname === "/routeTwo"
 
   return (
     <nav className="">
       <div
-        className={`${navbarBackground} ${flexBetween} border-b border-neutral-200 fixed  top-0 z-30 w-full max-w-full bg-stone-100 h-[72px] `}
+        className={`${navbarBackground} ${flexBetween} border-b border-neutral-300 fixed  top-0 z-30 w-full max-w-full bg-neutral-100 h-[72px] `}
       >
         <div className={`${flexBetween} mx-auto w-full px-4 sm:px-0 sm:w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
@@ -64,7 +64,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
             <LogoLinkNav />
 
             {/* RIGHT SIDE */}
-            {isRouteOne || isRouteTwo ? (
+            {isRouteOne ? (
               // Simplified Navbar for Waivers Page
               <div>
                 <Link
@@ -108,6 +108,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     displayText="Testimonials"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
+                  />{" "}
+                  <LinkDesktop
+                    scrollTo={SelectedPage.RouteTwo}
+                    displayText="Gallery"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
                   />
                   <LinkDesktop
                     scrollTo={SelectedPage.ContactUs}
@@ -125,7 +131,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   >
                     FAQ
                   </Link>{" "}
-                  <Link
+                  {/* <Link
                     to="/routeTwo"
                     onClick={() => {
                       sessionStorage.setItem("selectedPage", "routetwo")
@@ -133,7 +139,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     className="flex items-center  border-transparent hover:border-neutral-300 text-zinc-800 justify-center  mt-1 pb-1 px-1 mx-2 border-b-[2px] font-semibold"
                   >
                     Gallery
-                  </Link>
+                  </Link> */}
                   {/* <a
                     href="https://v3.gorilladesk.com/auth/login/?nav=menu"
                     target="_blank"
@@ -181,7 +187,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       {!isAboveMediumScreens && isMenuToggled && (
         <div
           ref={menuRef}
-          className={`fixed mt-[71px] top-0 right-0 w-full md:w-2/5 sm:rounded-bl-md overflow-hidden z-40 bg-neutral-100 border-b sm:border-l border-neutral-300 ${
+          className={`fixed mt-[71px] top-0 right-0 w-full md:w-2/5 sm:rounded-bl-md overflow-hidden z-30 bg-neutral-100 border-b sm:border-l border-neutral-300 ${
             isMenuToggled ? "h-auto opacity-100" : "h-0 opacity-0"
           }`}
         >
@@ -223,7 +229,14 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 toggleMenu={() => setIsMenuToggled(false)}
                 Icon={StarIcon}
               />
-
+              <LinkMobile
+                scrollTo={SelectedPage.RouteTwo}
+                displayText="Gallery"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+                toggleMenu={() => setIsMenuToggled(false)}
+                Icon={PhotoIcon}
+              />
               <LinkMobile
                 scrollTo={SelectedPage.ContactUs}
                 displayText="Contact Us"
@@ -245,7 +258,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   <QuestionMarkCircleIcon className="h-5 w-5 mr-4" />
                   <p>FAQ</p>
                 </Link>
-                <Link
+                {/* <Link
                   to="/routeTwo"
                   onClick={() => {
                     sessionStorage.setItem("selectedPage", "routetwo")
@@ -255,7 +268,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 >
                   <PhotoIcon className="h-5 w-5 mr-4" />
                   <p>Gallery</p>
-                </Link>
+                </Link> */}
                 {/* <a
                   href="https://v3.gorilladesk.com/auth/login/?nav=menu"
                   target="_blank"

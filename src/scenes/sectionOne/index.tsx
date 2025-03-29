@@ -40,7 +40,7 @@ const SectionOne = ({ setSelectedPage }: Props) => {
   return (
     <section
       id="sectionone"
-      className="min-h-[100vh] overflow-hidden relative isolate py-24 xl:py-32 "
+      className="min-h-[100vh] overflow-hidden relative isolate"
     >
       <motion.div
         className="mx-auto max-w-7xl px-5 lg:px-8 "
@@ -49,7 +49,7 @@ const SectionOne = ({ setSelectedPage }: Props) => {
         {/* BG DESIGN PATTERN================================== */}
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-neutral-400/60 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] "
+          className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-neutral-400/40 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] "
         >
           <defs>
             <pattern
@@ -89,7 +89,7 @@ const SectionOne = ({ setSelectedPage }: Props) => {
                 ensures your yard stays green, lush, and weed-free, so you can
                 enjoy a beautiful lawn without the hassle.
               </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-zinc-600 lg:max-w-none">
+              <dl className="mt-10 max-w-xl space-y-6 text-base/7 text-zinc-600 lg:max-w-none">
                 {features.map(feature => (
                   <div key={feature.name} className="relative pl-9">
                     <dt className="inline font-semibold text-zinc-900">
@@ -105,7 +105,7 @@ const SectionOne = ({ setSelectedPage }: Props) => {
               </dl>
             </div>
           </div>
-          <div className="flex items-start justify-end lg:order-first">
+          <div className="flex items-start justify-end lg:order-first sm:pt-24 xl:pt-32">
             <img
               alt="Product screenshot"
               src={ServiceImage}

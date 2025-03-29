@@ -1,14 +1,14 @@
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
 import SceneHeader from "@/shared/SceneHeader"
+import brennaImg from "@/assets/brenna.png"
 
 const featuredTestimonial = {
   body: "Lawn Harmony completely transformed our yard! Matt and his team were professional, efficient, and truly passionate about their work. Our lawn has never looked better!",
   author: {
     name: "Brenna Goyette",
     handle: "Sarasota",
-    imageUrl:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80",
+    imageUrl: brennaImg,
     logoUrl:
       "https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg",
   },
@@ -22,8 +22,7 @@ const testimonials = [
         author: {
           name: "Leslie Alexander",
           handle: "Bradenton",
-          imageUrl:
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          imageUrl: "",
         },
       },
       {
@@ -31,8 +30,7 @@ const testimonials = [
         author: {
           name: "Sara Dos Anjos",
           handle: "Sarasota",
-          imageUrl:
-            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          imageUrl: "",
         },
       },
     ],
@@ -42,8 +40,7 @@ const testimonials = [
         author: {
           name: "Lindsay Walton",
           handle: "Lakewood Ranch",
-          imageUrl:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          imageUrl: "",
         },
       },
     ],
@@ -53,10 +50,9 @@ const testimonials = [
       {
         body: "Top-notch lawn care! They take care of everything, from mowing to fertilization, and my lawn has never looked healthier.",
         author: {
-          name: "Tom Cook",
+          name: "Paul Cook",
           handle: "Sarasota",
-          imageUrl:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          imageUrl: "",
         },
       },
     ],
@@ -66,8 +62,7 @@ const testimonials = [
         author: {
           name: "Leonard Krasner",
           handle: "Bradenton",
-          imageUrl:
-            "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          imageUrl: "",
         },
       },
       {
@@ -75,8 +70,7 @@ const testimonials = [
         author: {
           name: "Ryan Mitchell",
           handle: "Sarasota",
-          imageUrl:
-            "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          imageUrl: "",
         },
       },
     ],
@@ -94,13 +88,10 @@ type Props = {
 
 const SectionThree = ({ setSelectedPage }: Props) => {
   return (
-    <section
-      id="sectionthree"
-      className="relative isolate pt-24 pb-32 sm:pt-32 w-full "
-    >
+    <section id="sectionthree" className="relative isolate pb-32  w-full ">
       <svg
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-neutral-400/60 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] "
+        className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-neutral-400/40 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] "
       >
         <defs>
           <pattern
@@ -190,11 +181,11 @@ const SectionThree = ({ setSelectedPage }: Props) => {
                         <p>{`“${testimonial.body}”`}</p>
                       </blockquote>
                       <figcaption className="mt-6 flex items-center gap-x-4">
-                        <img
+                        {/* <img
                           alt=""
                           src={testimonial.author.imageUrl}
                           className="w-10 rounded-full bg-gray-50 "
-                        />
+                        /> */}
                         <div>
                           <div className="font-semibold">
                             {testimonial.author.name}

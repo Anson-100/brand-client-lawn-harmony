@@ -1,6 +1,7 @@
+import { useState } from "react"
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
-import SceneHeader from "@/shared/SceneHeader"
+import { useForm, Controller } from "react-hook-form"
 
 import {
   BuildingOffice2Icon,
@@ -13,6 +14,48 @@ type Props = {
 }
 
 const ContactUs = ({ setSelectedPage }: Props) => {
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setFormState(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const fullName = `${formState.firstName} ${formState.lastName}`
+    const payload = {
+      name: fullName,
+      email: formState.email,
+      phone: formState.phone,
+      message: formState.message,
+    }
+
+    try {
+      const res = await fetch(
+        "https://m1ffj58tfe.execute-api.us-east-1.amazonaws.com/LawnHarmonySendEmail",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      )
+
+      const data = await res.json()
+      console.log("Form submitted successfully:", data.message)
+    } catch (err) {
+      console.error("Form submission error:", err)
+    }
+  }
+
   return (
     <section id="contactus" className="min-h-[100vh] relative isolate ">
       <motion.div
@@ -54,7 +97,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 />
               </svg>
             </div>
-            <SceneHeader sceneTitle="Contact Us" tagline="Get in Touch" />
+            <div className="flex flex-col gap-2">
+              <h3 className="font-semibold tracking-tight text-zinc-600">
+                Contact Us
+              </h3>
+              <h2 className="text-4xl font-semibold tracking-tight text-pretty text-zinc-900 sm:text-5xl">
+                Get in Touch
+              </h2>
+            </div>
 
             <p className="mt-6 text-lg/8 text-gray-600">
               Have questions or need a quote? We're here to help with all your
@@ -114,9 +164,10 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             </dl>
           </div>
         </div>
+        {/* CONTACT FORM=================================================================== */}
+
         <form
-          action="#"
-          method="POST"
+          onSubmit={handleSubmit}
           className="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 sm:py-36 xl:py-32 2xl:py-40 my-auto"
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -131,8 +182,10 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <input
                     id="first-name"
-                    name="first-name"
+                    name="firstName"
                     type="text"
+                    value={formState.firstName}
+                    onChange={handleChange}
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
@@ -148,8 +201,10 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <input
                     id="last-name"
-                    name="last-name"
+                    name="lastName"
                     type="text"
+                    value={formState.lastName}
+                    onChange={handleChange}
                     autoComplete="family-name"
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
@@ -167,6 +222,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     id="email"
                     name="email"
                     type="email"
+                    value={formState.email}
+                    onChange={handleChange}
                     autoComplete="email"
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
@@ -182,8 +239,10 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <input
                     id="phone-number"
-                    name="phone-number"
+                    name="phone"
                     type="tel"
+                    value={formState.phone}
+                    onChange={handleChange}
                     autoComplete="tel"
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
@@ -201,8 +260,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     id="message"
                     name="message"
                     rows={4}
+                    value={formState.message}
+                    onChange={handleChange}
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-                    defaultValue={""}
                   />
                 </div>
               </div>
@@ -210,7 +270,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <div className="mt-8 flex justify-end">
               <button
                 type="submit"
-                className="rounded-md bg-emerald-600 px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
+                className="hover:cursor-pointer rounded-md bg-emerald-600 px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
               >
                 Send message
               </button>

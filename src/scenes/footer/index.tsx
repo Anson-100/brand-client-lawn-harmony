@@ -15,20 +15,20 @@ type Props = {
 
 const Footer = ({ selectedPage, setSelectedPage }: Props) => {
   return (
-    <footer className="bg-neutral-700 flex flex-col">
+    <footer className="bg-neutral-800 flex flex-col">
       <AnchorLink
-        className="z-10 w-full bg-neutral-800 hover:bg-neutral-900 py-3 font-semibold text-center text-gray-200 "
+        className="z-10 w-full bg-neutral-900 hover:bg-neutral-950 py-3 font-semibold text-center text-gray-200 "
         onClick={() => setSelectedPage(SelectedPage.Home)}
         href={`#${SelectedPage.Home}`}
       >
         back to top
       </AnchorLink>
 
-      <div className="mx-auto max-w-7xl flex flex-col items-center overflow-hidden px-6 pt-10 pb-10 sm:pb-12 sm:pt-10 lg:px-8">
+      <div className="mx-auto max-w-7xl flex flex-col items-center overflow-hidden px-6 pt-8 lg:px-8">
         <LogoLinkFooter />
         <nav
           aria-label="Footer"
-          className="-mb-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-sm/6 mt-4"
+          className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-sm/6 mt-4"
         >
           <LinkFooter
             scrollTo={SelectedPage.SectionOne}
@@ -76,7 +76,7 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
             <span className="ml-1 text-zinc-500 text-lg">&rarr;</span>
           </button>
         </nav>
-        <div className="mt-16 flex justify-center gap-x-10">
+        <div className=" flex justify-center gap-x-10">
           {/* <span
             rel="noopener noreferrer"
             className="opacity-80 hover:opacity-100"
