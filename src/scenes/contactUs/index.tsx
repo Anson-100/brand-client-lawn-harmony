@@ -1,45 +1,46 @@
-import { useState } from "react"
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
 import { useForm, Controller } from "react-hook-form"
+import { useState } from "react"
 
-import {
-  BuildingOffice2Icon,
-  EnvelopeIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/outline"
+// import {
+//   // BuildingOffice2Icon,
+//   EnvelopeIcon,
+//   // PhoneIcon,
+// } from "@heroicons/react/24/outline"
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void
 }
 
+type FormData = {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  message: string
+}
+
 const ContactUs = ({ setSelectedPage }: Props) => {
-  const [formState, setFormState] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    control,
+    reset,
+  } = useForm<FormData>()
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target
-    setFormState(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const fullName = `${formState.firstName} ${formState.lastName}`
+  const onSubmit = async (data: FormData) => {
     const payload = {
-      name: fullName,
-      email: formState.email,
-      phone: formState.phone,
-      message: formState.message,
+      name: `${data.firstName} ${data.lastName}`,
+      email: data.email,
+      phone: data.phone,
+      message: data.message,
     }
 
     try {
+      setSubmissionStatus(null) // reset status before sending
+
       const res = await fetch(
         "https://m1ffj58tfe.execute-api.us-east-1.amazonaws.com/LawnHarmonySendEmail",
         {
@@ -49,12 +50,19 @@ const ContactUs = ({ setSelectedPage }: Props) => {
         }
       )
 
-      const data = await res.json()
-      console.log("Form submitted successfully:", data.message)
+      const resData = await res.json()
+      console.log("Form submitted successfully:", resData.message)
+      setSubmissionStatus("success") // ✅ Show confirmation
+      reset()
     } catch (err) {
       console.error("Form submission error:", err)
+      setSubmissionStatus("error") // ❌ Show error
     }
   }
+
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "success" | "error" | null
+  >(null)
 
   return (
     <section id="contactus" className="min-h-[100vh] relative isolate ">
@@ -64,7 +72,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
       >
         <div className="relative px-6 pt-24 pb-20 sm:py-36 xl:py-40 flex items-center lg:static lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-neutral-100 ring-1 ring-neutral-900/10 lg:w-1/2">
+            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-neutral-100  ring-neutral-900/10 lg:w-1/2">
               <svg
                 aria-hidden="true"
                 className="absolute inset-0 size-full stroke-neutral-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -107,13 +115,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             </div>
 
             <p className="mt-6 text-lg/8 text-gray-600">
-              Have questions or need a quote? We're here to help with all your
-              lawn and landscaping needs. Reach out by phone, email, or the form
-              on this page and we’ll get back to you soon. We look forward to
-              hearing from you!
+              Have questions or need a quote? We’re here to help with all your
+              turf, palm, and shrub nutrition needs. The best way to reach us is
+              through the form on this page or by email — we’ll get back to you
+              as soon as we can. We look forward to hearing from you!
             </p>
             <dl className="mt-10 space-y-4 text-base/7 text-gray-600">
-              <div className="flex gap-x-4">
+              {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Address</span>
                   <BuildingOffice2Icon
@@ -126,8 +134,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   <br />
                   Bradenton, FL 34208
                 </dd>
-              </div>
-              <div className="flex gap-x-4">
+              </div> */}
+              {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Telephone</span>
                   <PhoneIcon
@@ -143,8 +151,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     +1 (555) 555-5555
                   </a>
                 </dd>
-              </div>
-              <div className="flex gap-x-4">
+              </div> */}
+              {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Email</span>
                   <EnvelopeIcon
@@ -160,14 +168,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     customerservice@lawnharmony.com
                   </a>
                 </dd>
-              </div>
+              </div> */}
             </dl>
           </div>
         </div>
         {/* CONTACT FORM=================================================================== */}
 
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 sm:py-36 xl:py-32 2xl:py-40 my-auto"
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -182,15 +190,21 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <input
                     id="first-name"
-                    name="firstName"
                     type="text"
-                    value={formState.firstName}
-                    onChange={handleChange}
                     autoComplete="given-name"
+                    {...register("firstName", {
+                      required: "First name is required",
+                    })}
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
+                  {errors.firstName && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.firstName.message}
+                    </p>
+                  )}
                 </div>
               </div>
+
               <div>
                 <label
                   htmlFor="last-name"
@@ -201,15 +215,21 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <input
                     id="last-name"
-                    name="lastName"
                     type="text"
-                    value={formState.lastName}
-                    onChange={handleChange}
                     autoComplete="family-name"
+                    {...register("lastName", {
+                      required: "Last name is required",
+                    })}
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
+                  {errors.lastName && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.lastName.message}
+                    </p>
+                  )}
                 </div>
               </div>
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="email"
@@ -220,34 +240,81 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <input
                     id="email"
-                    name="email"
                     type="email"
-                    value={formState.email}
-                    onChange={handleChange}
                     autoComplete="email"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Enter a valid email address",
+                      },
+                    })}
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
               </div>
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="phone-number"
-                  className="block text-sm/6 font-semibold text-gray-900"
-                >
-                  Phone number
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    id="phone-number"
-                    name="phone"
-                    type="tel"
-                    value={formState.phone}
-                    onChange={handleChange}
-                    autoComplete="tel"
-                    className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-                  />
-                </div>
-              </div>
+
+              {/* PHONE NUMBER------------- */}
+              <Controller
+                name="phone"
+                control={control}
+                rules={{
+                  required: "Phone number is required",
+                  pattern: {
+                    value: /^\d{3}-\d{3}-\d{4}$/,
+                    message: "Format must be 123-456-7890",
+                  },
+                }}
+                render={({
+                  field: { onChange, value, ...field },
+                  fieldState: { error },
+                }) => {
+                  const formatPhoneNumber = (input: string) => {
+                    const digits = input.replace(/\D/g, "").slice(0, 10)
+                    const area = digits.slice(0, 3)
+                    const middle = digits.slice(3, 6)
+                    const last = digits.slice(6, 10)
+
+                    if (digits.length > 6) return `${area}-${middle}-${last}`
+                    if (digits.length > 3) return `${area}-${middle}`
+                    return area
+                  }
+
+                  return (
+                    <div className="sm:col-span-2">
+                      <label
+                        htmlFor="phone-number"
+                        className="block text-sm/6 font-semibold text-gray-900"
+                      >
+                        Phone number
+                      </label>
+                      <div className="mt-2.5">
+                        <input
+                          id="phone-number"
+                          type="tel"
+                          value={value || ""}
+                          onChange={e =>
+                            onChange(formatPhoneNumber(e.target.value))
+                          }
+                          {...field}
+                          className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+                        />
+                        {error && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {error.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )
+                }}
+              />
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
@@ -258,21 +325,44 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <div className="mt-2.5">
                   <textarea
                     id="message"
-                    name="message"
                     rows={4}
-                    value={formState.message}
-                    onChange={handleChange}
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
                     className="block w-full rounded-md bg-neutral-50 px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
                   />
+                  {errors.message && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 flex flex-col items-end gap-3">
+              {/* Feedback Message */}
+              {submissionStatus === "success" && (
+                <p className="text-sm text-emerald-600 font-medium">
+                  Message sent!
+                </p>
+              )}
+              {submissionStatus === "error" && (
+                <p className="text-sm text-red-600 font-medium">
+                  Error sending message. Please try again.
+                </p>
+              )}
+
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="hover:cursor-pointer rounded-md bg-emerald-600 px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
+                disabled={isSubmitting}
+                className={`hover:cursor-pointer rounded-md px-5 py-3 w-full sm:w-auto font-semibold text-white shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600 ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-emerald-600 hover:bg-emerald-500"
+                }`}
               >
-                Send message
+                {isSubmitting ? "Submitting..." : "Send message"}
               </button>
             </div>
           </div>

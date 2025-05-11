@@ -12,12 +12,12 @@ import {
   WrenchScrewdriverIcon,
   UserCircleIcon,
   StarIcon,
-  InformationCircleIcon,
+  // InformationCircleIcon,
   QuestionMarkCircleIcon,
   PhotoIcon,
 } from "@heroicons/react/24/solid"
 
-import { PhoneIcon } from "@heroicons/react/24/outline"
+// import { PhoneIcon } from "@heroicons/react/24/outline"
 
 import { SelectedPage } from "@/shared/types"
 import useMediaQuery from "@/hooks/useMediaQuery"
@@ -31,7 +31,7 @@ type Props = {
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between"
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1460px)")
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1510px)")
 
   const navbarBackground = isTopOfPage ? "" : ""
 
@@ -50,7 +50,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   }, [])
 
   // Check if the current route is `/waivers`
-  const isRouteOne = location.pathname === "/routeOne"
+  const isRouteOne = location.pathname === "/faq"
   // const isRouteTwo = location.pathname === "/routeTwo"
 
   return (
@@ -97,12 +97,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                  <LinkDesktop
+                  {/* <LinkDesktop
                     scrollTo={SelectedPage.SectionTwo}
                     displayText="About Us"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
-                  />
+                  /> */}
                   <LinkDesktop
                     scrollTo={SelectedPage.SectionThree}
                     displayText="Testimonials"
@@ -123,35 +123,17 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   />
                   <div className="h-6 w-[1px] mb-1 bg-neutral-300"></div>
                   <Link
-                    to="/routeOne"
+                    to="/faq"
                     onClick={() => {
                       sessionStorage.setItem("selectedPage", "routeone")
                     }}
                     className="flex items-center  border-transparent hover:border-neutral-300 text-zinc-800 justify-center  mt-1 pb-1 px-1 mx-2 border-b-[2px] font-semibold"
                   >
-                    FAQ
+                    Tips & FAQ
                   </Link>{" "}
-                  {/* <Link
-                    to="/routeTwo"
-                    onClick={() => {
-                      sessionStorage.setItem("selectedPage", "routetwo")
-                    }}
-                    className="flex items-center  border-transparent hover:border-neutral-300 text-zinc-800 justify-center  mt-1 pb-1 px-1 mx-2 border-b-[2px] font-semibold"
-                  >
-                    Gallery
-                  </Link> */}
-                  {/* <a
-                    href="https://v3.gorilladesk.com/auth/login/?nav=menu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex hover:cursor-pointer items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 rounded-md border border-neutral-300 ml-2"
-                  >
-                    Customer Sign In
-                    <div className="text-neutral-500 text-lg">&rarr;</div>
-                  </a> */}
                   <button
                     onClick={() => (window as any).GorillaDesk("showPortal")}
-                    className="flex items-center font-semibold text-zinc-800 justify-center gap-2 py-2 px-4 rounded-md border border-neutral-300 ml-2 hover:cursor-pointer"
+                    className="flex items-center  border-transparent hover:border-neutral-300 text-zinc-800 justify-center  mt-1 pb-1 px-1 mx-2 border-b-[2px] font-semibold hover:cursor-pointer gap-2"
                   >
                     Customer Sign In
                     <div className="text-neutral-500 text-lg">→</div>
@@ -160,12 +142,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               </div>
             ) : (
               <div className="flex items-center justify-center">
-                <a
+                {/* <a
                   href="tel:+1234567890"
                   className="flex items-center gap-2 px-4 py-2 text-zinc-400  rounded-lg hover:bg-zinc-100 transition"
                 >
                   <PhoneIcon className="w-6 h-6" />
-                </a>
+                </a> */}
 
                 <button
                   className="rounded-full p-2 hover:cursor-pointer"
@@ -212,14 +194,14 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 Icon={WrenchScrewdriverIcon}
               />
 
-              <LinkMobile
+              {/* <LinkMobile
                 scrollTo={SelectedPage.SectionTwo}
                 displayText="About Us"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 toggleMenu={() => setIsMenuToggled(false)}
                 Icon={InformationCircleIcon}
-              />
+              /> */}
 
               <LinkMobile
                 scrollTo={SelectedPage.SectionThree}
@@ -248,7 +230,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               <div className="w-11/12 h-[1px] bg-neutral-300 my-2"></div>
               <div className="w-full mb-4">
                 <Link
-                  to="/routeOne"
+                  to="/faq"
                   onClick={() => {
                     sessionStorage.setItem("selectedPage", "routeone")
                     setIsMenuToggled(false)
@@ -256,7 +238,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   className=" font-semibold pt-4 pb-2 w-full sm:w-5/6 px-4 mx-auto flex items-center text-zinc-500 hover:text-zinc-600"
                 >
                   <QuestionMarkCircleIcon className="h-5 w-5 mr-4" />
-                  <p>FAQ</p>
+                  <p>Tips & FAQ</p>
                 </Link>
                 {/* <Link
                   to="/routeTwo"

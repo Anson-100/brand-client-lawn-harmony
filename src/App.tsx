@@ -6,8 +6,9 @@ import SectionThree from "@/scenes/sectionThree"
 import ContactUs from "@/scenes/contactUs"
 import RouteOne from "@/scenes/routeOne"
 import RouteTwo from "@/scenes/routeTwo"
-
-// import LineGradient from "@/components/LineGradient"
+import AdminDashboard from "@/admin/AdminDashboard"
+import LoginPortal from "@/admin/LoginPortal"
+import LineGradient from "@/components/LineGradient"
 import Footer from "@/scenes/footer"
 
 import { useEffect, useState } from "react"
@@ -36,11 +37,14 @@ function App() {
   return (
     <Router>
       <div className="app bg-black dark:bg-grayish">
-        <Navbar
-          isTopOfPage={isTopOfPage}
-          selectedPage={selectedPage}
-          setSelectedPage={setSelectedPage}
-        />
+        {!location.pathname.startsWith("/admin") &&
+          !location.pathname.startsWith("/dev-login") && (
+            <Navbar
+              isTopOfPage={isTopOfPage}
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+          )}
 
         <Routes>
           {/* Main Scrollable Page */}
@@ -49,14 +53,18 @@ function App() {
             element={
               <>
                 <Home setSelectedPage={setSelectedPage} />
+                <LineGradient />
 
                 <SectionOne setSelectedPage={setSelectedPage} />
-
+                <LineGradient />
                 <SectionTwo setSelectedPage={setSelectedPage} />
+                <LineGradient />
 
                 <SectionThree setSelectedPage={setSelectedPage} />
+                <LineGradient />
 
                 <RouteTwo setSelectedPage={setSelectedPage} />
+                <LineGradient />
 
                 <ContactUs setSelectedPage={setSelectedPage} />
 
@@ -69,8 +77,9 @@ function App() {
           />
 
           {/* Standalone Route for FAQ and User Login */}
-          <Route path="/routeOne" element={<RouteOne />} />
-          {/* <Route path="/routeTwo" element={<RouteTwo />} /> */}
+          <Route path="/faq" element={<RouteOne />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/dev-login" element={<LoginPortal />} />
         </Routes>
       </div>
     </Router>

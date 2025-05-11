@@ -22,32 +22,38 @@ const RouteOne: React.FC = () => {
   const PolicyItems: PolicyItem[] = [
     {
       id: "policy1",
-      question: "What services do you offer?",
-      answer:
-        "We provide lawn care, landscaping, hardscaping, irrigation, and seasonal maintenance.",
+      question: "What makes a lawn healthy?",
+      answer: "Good soil, proper nutrients, water, and sunlight are key.",
     },
     {
       id: "policy2",
-      question: "How often should I mow my lawn?",
-      answer:
-        "It depends on the season, but generally, mowing once a week keeps your lawn healthy.",
+      question: "Why hire a professional lawn service?",
+      answer: "We know what your lawn needs and when it needs it.",
     },
     {
       id: "policy3",
-      question: "Do you offer free estimates?",
-      answer: "Yes! Contact us to schedule a free consultation and quote.",
+      question: "How often should lawn care happen?",
+      answer: "We recommend weekly or bi-weekly during the growing season.",
     },
     {
       id: "policy4",
-      question: "What areas do you serve?",
-      answer:
-        "We serve Sarasota, Bradenton, Lakewood Ranch, and surrounding areas.",
+      question: "What can I do to help my lawn?",
+      answer: "Water properly and avoid cutting the grass too short.",
     },
     {
       id: "policy5",
-      question: "Do you offer recurring maintenance plans?",
-      answer:
-        "Yes, we have flexible maintenance plans to keep your lawn looking great year-round.",
+      question: "How do you care for palm trees?",
+      answer: "We trim only as needed to keep palms healthy and clean.",
+    },
+    {
+      id: "policy6",
+      question: "What’s the right way to prune shrubs?",
+      answer: "We shape shrubs carefully to promote healthy growth.",
+    },
+    {
+      id: "policy7",
+      question: "What else affects lawn health?",
+      answer: "Things like soil compaction, pests, and traffic all matter.",
     },
   ]
 
@@ -64,8 +70,8 @@ const RouteOne: React.FC = () => {
       <div className="sm:mx-auto sm:text-center">
         {" "}
         <SceneHeader
-          sceneTitle="FAQ"
-          tagline="Answers to your most common questions"
+          sceneTitle="Tips & FAQ"
+          tagline="Lawn care advice and answers to common questions"
         />
       </div>
 

@@ -9,11 +9,11 @@ const Greeting = () => {
       const hours = now.getHours() // Local time zone is automatically used
 
       if (hours < 12) {
-        setGreeting("Welcome to Lawn Harmony")
+        setGreeting("Good morning, Matt")
       } else if (hours < 18) {
-        setGreeting("Welcome to Lawn Harmony")
+        setGreeting("Good afternoon, Matt")
       } else {
-        setGreeting("Welcome to Lawn Harmony")
+        setGreeting("Good evening, Matt")
       }
     }
 
@@ -25,7 +25,7 @@ const Greeting = () => {
   }, [])
 
   return (
-    <p className="text-base font-semibold text-emerald-600 tracking-tight sm:hidden">
+    <p className="text-base font-semibold text-zinc-600 tracking-tight ">
       {greeting}
     </p>
   )

@@ -1,119 +1,114 @@
+import { useEffect } from "react"
 import { SelectedPage } from "@/shared/types"
 import { motion } from "framer-motion"
-
-import ServiceImage from "@/assets/serviceImage.png"
-
 import SceneHeader from "@/shared/SceneHeader"
 
-import {
-  FunnelIcon,
-  HomeModernIcon,
-  BugAntIcon,
-} from "@heroicons/react/20/solid"
-
-const features = [
-  {
-    name: "Lawn Mowing & Maintenance.",
-    description:
-      "Regular mowing, edging, and trimming to keep your lawn looking pristine.",
-    icon: HomeModernIcon,
-  },
-  {
-    name: "Weed Control & Fertilization.",
-    description:
-      "Customized treatments to eliminate weeds and promote lush, healthy grass.",
-    icon: BugAntIcon,
-  },
-  {
-    name: "Aeration & Overseeding.",
-    description:
-      "Improving soil health and thickening your lawn for stronger, greener grass.",
-    icon: FunnelIcon,
-  },
-]
+// import MobileTile from "@/components/MobileTile"
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void
 }
 
+const services = [
+  {
+    name: "Lawn fertilization",
+    role: "Scheduled feeding plans to strengthen roots and promote lush growth",
+    imageUrl:
+      "https://images.unsplash.com/photo-1700547492500-92fbcc77fa70?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    xUrl: "#",
+    linkedinUrl: "#",
+  },
+  {
+    name: "Soil & pH balancing",
+    role: "Test and treat soil to improve nutrient absorption and turf performance",
+    imageUrl:
+      "https://images.unsplash.com/photo-1712842964271-872137967f59?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    xUrl: "#",
+    linkedinUrl: "#",
+  },
+  {
+    name: "Weed & crabgrass control",
+    role: "Eliminate invasive weeds and prevent new growth with targeted treatments",
+    imageUrl:
+      "https://images.unsplash.com/photo-1714608578706-0f1ac2543f59?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    xUrl: "#",
+    linkedinUrl: "#",
+  },
+  {
+    name: "Shrub shaping & pruning",
+    role: "Maintain clean lines and healthy growth with expert pruning and detail work",
+    imageUrl:
+      "https://images.unsplash.com/photo-1606690133836-418d8143a231?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    xUrl: "#",
+    linkedinUrl: "#",
+  },
+  {
+    name: "Palm trimming & cleanup",
+    role: "Professional palm care, frond removal, and storm-prep trimming",
+    imageUrl:
+      "https://images.unsplash.com/photo-1535392432937-a27c36ec07b5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    xUrl: "#",
+    linkedinUrl: "#",
+  },
+
+  {
+    name: "Outdoor pest control",
+    role: "Targeted treatment to eliminate lawn pests and protect plant life",
+    imageUrl:
+      "https://images.unsplash.com/photo-1702623945459-d2ebfec1ca31?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    xUrl: "#",
+    linkedinUrl: "#",
+  },
+]
+
 const SectionOne = ({ setSelectedPage }: Props) => {
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const clickedElement = event.target as HTMLElement
+      if (!clickedElement.closest(".skills-mobile")) {
+        // setTileStates({})
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
+
   return (
     <section
       id="sectionone"
       className="min-h-[100vh] overflow-hidden relative isolate"
     >
       <motion.div
-        className="mx-auto max-w-7xl px-5 lg:px-8 "
+        className="pb-24 sm:pb-32"
         onViewportEnter={() => setSelectedPage(SelectedPage.SectionOne)}
       >
-        {/* BG DESIGN PATTERN================================== */}
-        <svg
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-neutral-400/40 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] "
-        >
-          <defs>
-            <pattern
-              x="50%"
-              y={-1}
-              id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
-              width={200}
-              height={200}
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M.5 200V.5H200" fill="none" />
-            </pattern>
-          </defs>
-          <svg x="50%" y={-1} className="overflow-visible fill-neutral-200">
-            <path
-              d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-              strokeWidth={0}
-            />
-          </svg>
-          <rect
-            fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
-            width="100%"
-            height="100%"
-            strokeWidth={0}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SceneHeader
+            sceneTitle="Services"
+            tagline="Lawn care made easy. Results you can see."
           />
-        </svg>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:ml-auto lg:pt-4 lg:pl-4">
-            <div className="lg:max-w-lg">
-              <SceneHeader
-                sceneTitle="Services"
-                tagline="Lawn care made easy. Results you can see."
-              />
-              <p className="mt-6 text-lg/8 text-zinc-600 hidden sm:inline-block">
-                A well-maintained lawn isn’t just about looks—it’s about
-                creating a healthy, thriving outdoor space. Our expert team
-                ensures your yard stays green, lush, and weed-free, so you can
-                enjoy a beautiful lawn without the hassle.
-              </p>
-              <dl className="mt-10 max-w-xl space-y-6 text-base/7 text-zinc-600 lg:max-w-none">
-                {features.map(feature => (
-                  <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold text-zinc-900">
-                      <feature.icon
-                        aria-hidden="true"
-                        className="absolute top-1 left-1 w-5 text-emerald-500"
-                      />
-                      {feature.name}
-                    </dt>{" "}
-                    <dd className="inline">{feature.description}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-          <div className="flex items-start justify-end lg:order-first sm:pt-24 xl:pt-32">
-            <img
-              alt="Product screenshot"
-              src={ServiceImage}
-              width={2432}
-              height={1442}
-              className="w-[48rem] max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]"
-            />
-          </div>
+
+          <ul
+            role="list"
+            className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+          >
+            {services.map(service => (
+              <li key={service.name}>
+                <img
+                  alt=""
+                  src={service.imageUrl}
+                  className="aspect-3/2 w-full rounded-2xl object-cover"
+                />
+                <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
+                  {service.name}
+                </h3>
+                <p className="text-base/7 text-gray-600">{service.role}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </motion.div>
     </section>

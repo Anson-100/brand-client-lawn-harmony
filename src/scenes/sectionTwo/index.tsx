@@ -7,7 +7,10 @@ import SceneHeader from "@/shared/SceneHeader"
 
 const stats = [
   { value: "10+ years", label: "in business" },
-  { value: "Sarasota & surrounding areas", label: "communities served" },
+  {
+    value: "Manatee county and surrounding areas",
+    label: "communities served",
+  },
   { value: "5,000+", label: "lawns transformed" },
 ]
 
@@ -23,7 +26,7 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
     >
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200/10  ring-1 shadow-xl shadow-neutral-600/20 ring-neutral-200 sm:-mr-80 lg:-mr-96"
+        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-neutral-200/10  ring-1 shadow-lg shadow-neutral-600/20 ring-neutral-200 sm:-mr-80 lg:-mr-96"
       />
       <motion.div
         className="overflow-hidden relative isolate"
@@ -36,19 +39,18 @@ const SectionTwo = ({ setSelectedPage }: Props) => {
               <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
                 <p className="text-lg/8 sm:text-xl/8 text-gray-600">
                   At Lawn Harmony, we believe a beautiful lawn brings people
-                  together. With years of experience, a commitment to quality,
-                  and a passion for transforming outdoor spaces, we make lawn
-                  care effortless for our customers. Whether it’s weekly
-                  maintenance or seasonal treatments, our team ensures your lawn
-                  stays lush, healthy, and green year-round.
+                  together. We’re a dedicated local team that takes pride in
+                  honest work and consistently delivering lasting results. With
+                  expert care and reliable service, we help your lawn reach its
+                  full potential — with support that works in harmony with you
+                  and the elements.
                 </p>
                 <p className="mt-10 max-w-xl text-base/7 text-gray-700">
-                  Our mission is simple: provide top-quality lawn care with
-                  unbeatable customer service—so you can enjoy your yard without
-                  the hassle.
+                  Our mission is simple: to help your lawn thrive by delivering
+                  dependable care and great customer service.
                 </p>
               </div>
-              <div className="lg:flex lg:flex-auto lg:justify-center">
+              <div className="lg:flex rounded-md lg:flex-auto lg:justify-center">
                 <dl className="w-64 space-y-8 xl:w-80">
                   {stats.map(stat => (
                     <div
